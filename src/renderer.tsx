@@ -11,11 +11,31 @@ export const renderer = jsxRenderer(({ children }) => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          tailwind = {
+            theme: {
+              extend: {
+                colors: {
+                  brand: {
+                    dark: '#1E1E1E',
+                    light: '#FAFAFA',
+                    warm: '#BA9871',
+                    cool: '#415A93'
+                  }
+                },
+                borderRadius: {
+                  card: '12px',
+                  button: '8px'
+                }
+              }
+            }
+          }
+        ` }} />
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" rel="stylesheet" />
         <link href="/static/styles.css" rel="stylesheet" />
       </head>
-      <body class="font-[Inter] text-gray-900 antialiased">{children}
+      <body class="font-[Inter] text-gray-900 antialiased bg-[#faf7f2]">{children}
         <script src="/static/app.js" defer></script>
       </body>
     </html>

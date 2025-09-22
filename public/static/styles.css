@@ -1,26 +1,41 @@
 /* Radiant Republic Styles: minimal custom layer on top of Tailwind */
 :root{
-  --rr-gold:#f6c453;
-  --rr-amber:#f59e0b;
-  --rr-deep:#0b1020;
-  --rr-ink:#0f172a;
-  --rr-warm:#faf7f2;
+  --brand-dark:#1E1E1E;   /* near black */
+  --brand-light:#FAFAFA;  /* off-white */
+  --brand-warm:#BA9871;   /* warm tan */
+  --brand-cool:#415A93;   /* navy */
 }
 html, body{height:100%;}
+
+/* Brand utility classes */
+.bg-brand-warm{background:var(--brand-warm)}
+.bg-brand-cool{background:var(--brand-cool)}
+.text-brand-dark{color:var(--brand-dark)}
+.text-brand-cool{color:var(--brand-cool)}
+.text-brand-warm{color:var(--brand-warm)}
+.border-brand-dark\/10{border-color:rgba(30,30,30,.1)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;border-radius:.5rem;padding:.75rem 1.25rem;}
+.btn-primary{background:var(--brand-warm);color:#fff}
+.btn-primary:hover{filter:brightness(.95)}
+.btn-outline{border:1px solid rgba(30,30,30,.15);color:var(--brand-dark)}
+.btn-outline:hover{background:rgba(30,30,30,.04)}
 /***** Utility helpers *****/
-.shadow-glow{box-shadow:0 10px 30px rgba(245, 158, 11, .35), inset 0 0 0 1px rgba(255,255,255,.06)}
-.glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(15,23,42,.5)}
+.shadow-glow{box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(255,255,255,.75)}
+/***** Diagonal helpers (optional) *****/
 .diag-mask{clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%)}
 .diag-mask-rev{clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%)}
-/***** Break/Layered images *****/
+/***** Panel slices *****/
 .panel-slice{position:relative; overflow:hidden}
 .panel-slice img{object-fit:cover; width:100%; height:100%}
-.panel-slice:after{content:""; position:absolute; inset:auto 0 0 0; height:25%; background:linear-gradient(to top, rgba(0,0,0,.45), transparent)}
+.panel-slice:after{content:""; position:absolute; inset:auto 0 0 0; height:20%; background:linear-gradient(to top, rgba(0,0,0,.35), transparent)}
 /***** Sticky nav transparency transition *****/
 .sticky-nav{transition:background-color .25s ease, box-shadow .25s ease}
-.sticky-nav.scrolled{background:rgba(10, 12, 24, .6); box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.sticky-nav.scrolled{background:rgba(255, 255, 255, 1); box-shadow:0 6px 18px rgba(0,0,0,.08)}
 /***** High-contrast text helpers *****/
-.text-glow{ text-shadow: 0 2px 20px rgba(0,0,0,.45)}
+.text-glow{ text-shadow: 0 2px 20px rgba(0,0,0,.2)}
 
 /* Mobile menu hidden by default, toggled by JS */
 #mobileMenu{display:none}
