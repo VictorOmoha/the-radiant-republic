@@ -1,0 +1,27 @@
+/* Radiant Republic Styles: minimal custom layer on top of Tailwind */
+:root{
+  --rr-gold:#f6c453;
+  --rr-amber:#f59e0b;
+  --rr-deep:#0b1020;
+  --rr-ink:#0f172a;
+  --rr-warm:#faf7f2;
+}
+html, body{height:100%;}
+/***** Utility helpers *****/
+.shadow-glow{box-shadow:0 10px 30px rgba(245, 158, 11, .35), inset 0 0 0 1px rgba(255,255,255,.06)}
+.glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(15,23,42,.5)}
+.diag-mask{clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%)}
+.diag-mask-rev{clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%)}
+/***** Break/Layered images *****/
+.panel-slice{position:relative; overflow:hidden}
+.panel-slice img{object-fit:cover; width:100%; height:100%}
+.panel-slice:after{content:""; position:absolute; inset:auto 0 0 0; height:25%; background:linear-gradient(to top, rgba(0,0,0,.45), transparent)}
+/***** Sticky nav transparency transition *****/
+.sticky-nav{transition:background-color .25s ease, box-shadow .25s ease}
+.sticky-nav.scrolled{background:rgba(10, 12, 24, .6); box-shadow:0 8px 20px rgba(0,0,0,.25)}
+/***** High-contrast text helpers *****/
+.text-glow{ text-shadow: 0 2px 20px rgba(0,0,0,.45)}
+
+/* Mobile menu hidden by default, toggled by JS */
+#mobileMenu{display:none}
+#mobileMenu.open{display:block}
