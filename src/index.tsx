@@ -17,7 +17,7 @@ app.get('/', (c) => {
             </a>
             <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
               <a class="hover:text-amber-600" href="#home">Home</a>
-              <a class="hover:text-amber-600" href="#about">About</a>
+              <a class="hover:text-amber-600" href="/about">About</a>
               <a class="hover:text-amber-600" href="#gatherings">Gatherings</a>
               <a class="hover:text-amber-600" href="#ministries">Ministries</a>
               <a class="hover:text-amber-600" href="#events">Events</a>
@@ -36,7 +36,7 @@ app.get('/', (c) => {
         <div id="mobileMenu" class="md:hidden bg-white/95 border-t border-black/10">
           <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
             <a class="block py-2 hover:text-brand-warm" href="#home">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="#about">About</a>
+            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="#gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="#ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="#events">Events</a>
