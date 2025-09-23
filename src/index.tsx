@@ -199,4 +199,179 @@ app.get('/', (c) => {
   )
 })
 
+// About page
+app.get('/about', (c) => {
+  return c.render(
+    <>
+      {/* Header / Nav (same style, white background) */}
+      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-24 items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
+              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+            </a>
+            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
+              <a class="hover:text-brand-warm" href="/">Home</a>
+              <a class="hover:text-brand-warm" href="/about">About</a>
+              <a class="hover:text-brand-warm" href="/#gatherings">Gatherings</a>
+              <a class="hover:text-brand-warm" href="/#ministries">Ministries</a>
+              <a class="hover:text-brand-warm" href="/#events">Events</a>
+              <a class="hover:text-brand-warm" href="/#give">Give</a>
+              <div class="flex items-center gap-4 text-base">
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+              </div>
+            </nav>
+            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        {/* Mobile menu */}
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
+          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
+            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
+            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
+            <a class="block py-2 hover:text-brand-warm" href="/#gatherings">Gatherings</a>
+            <a class="block py-2 hover:text-brand-warm" href="/#ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero split */}
+      <section class="pt-28 md:pt-32 bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
+          <div class="relative rounded-xl overflow-hidden min-h-[340px] md:min-h-[520px]">
+            <img src="https://page.gensparksite.com/v1/base64_upload/9d203efd148787105356059dce4824ef" alt="Worship" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/25"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="text-white font-black leading-[0.95] text-4xl sm:text-5xl md:text-6xl tracking-tight">
+                <div>THE</div>
+                <div>RADIANT</div>
+                <div>REPUBLIC</div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
+            <h1 class="text-5xl font-extrabold text-gray-900">About Us</h1>
+            <p class="mt-2 text-gray-600">We’re a church family shaped by Jesus—warm, hopeful, and always moving toward people.</p>
+            <div class="mt-8 space-y-6">
+              <div class="flex gap-4">
+                <div class="w-1 bg-brand-warm rounded"></div>
+                <div>
+                  <h3 class="text-2xl font-extrabold text-gray-900">Our Story</h3>
+                  <p class="text-gray-700 mt-1">The Radiant Republic began in a living room in Cleveland, OH with a simple desire: to shine light in our city through hospitality, worship, and discipleship.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-1 bg-brand-dark rounded"></div>
+                <div>
+                  <h3 class="text-2xl font-extrabold text-gray-900">Our Mission</h3>
+                  <p class="text-gray-700 mt-1">Make the Good News accessible to all people everywhere—welcoming, equipping, and sending carriers of hope.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section class="bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Our Values</h2>
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+            <div class="text-center">
+              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-hands-praying"></i></div>
+              <div class="mt-2 font-medium">Worship</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-hands"></i></div>
+              <div class="mt-2 font-medium">Prayer</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-users"></i></div>
+              <div class="mt-2 font-medium">Community</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-gift"></i></div>
+              <div class="mt-2 font-medium">Generosity</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-handshake"></i></div>
+              <div class="mt-2 font-medium">Integrity</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section class="bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <div class="grid grid-cols-2 gap-4">
+                <img class="rounded-lg object-cover aspect-[4/5] w-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" alt="Leader"/>
+                <img class="rounded-lg object-cover aspect-[4/5] w-full" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1000&auto=format&fit=crop" alt="Leader"/>
+              </div>
+              <div class="mt-4">
+                <h3 class="text-2xl font-extrabold text-gray-900">Pastor</h3>
+                <div class="text-gray-600">Lead Pastor</div>
+                <p class="text-gray-700 mt-2">Short bio or welcome message here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+              </div>
+            </div>
+            <div class="grid gap-6">
+              <div class="rounded-xl p-6 bg-white border border-brand-dark/10">
+                <h3 class="text-3xl font-extrabold text-gray-900">Leadership Team</h3>
+                <p class="text-gray-700 mt-2">We lead together with humility and clarity across ministries, groups, and next generation.</p>
+              </div>
+              <div class="rounded-xl overflow-hidden">
+                <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Community"/>
+              </div>
+              <div class="rounded-xl p-6 bg-brand-warm text-gray-900 border border-brand-dark/10">
+                <h3 class="text-3xl font-extrabold">Join Our Community</h3>
+                <p class="mt-2">Find your people and your purpose at Radiant.</p>
+                <div class="mt-4"><a href="/#gatherings" class="btn btn-outline">Plan a Visit</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-white border-t border-black/10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
+            <div>
+              <div class="flex items-center gap-2 font-bold tracking-wide">
+                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+              </div>
+              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
+            </div>
+            <div>
+              <h4 class="font-semibold">Contact</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
+                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
+                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold">Next Steps</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><a href="/#about" class="hover:text-gray-900">About</a></li>
+                <li><a href="/#events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
+                <li><a href="/#give" class="hover:text-gray-900">Give</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
+        </div>
+      </footer>
+    </>
+  )
+})
+
 export default app
