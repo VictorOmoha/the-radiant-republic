@@ -1,13 +1,10 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
-import gatherings from './gatherings'
 
 const app = new Hono()
 
 app.use(renderer)
 
-// Mount sub-routes
-app.route('/gatherings', gatherings)
 
 app.get('/', (c) => {
   return c.render(
