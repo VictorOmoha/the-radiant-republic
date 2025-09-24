@@ -47,7 +47,7 @@ app.get('/', (c) => {
       </header>
 
       {/* Hero split layout (matches provided design) */}
-      <section id="home" class="pt-20 bg-[#faf7f2]">
+      <section id="home" class="pt-28 md:pt-32 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
             {/* Left: image with title overlay */}
@@ -242,7 +242,7 @@ app.get('/about', (c) => {
       </header>
 
       {/* Hero split */}
-      <section class="pt-28 md:pt-32 bg-[#faf7f2]">
+      <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           <div class="relative rounded-xl overflow-hidden min-h-[340px] md:min-h-[520px]">
             <img src="https://page.gensparksite.com/v1/base64_upload/9d203efd148787105356059dce4824ef" alt="Worship" class="absolute inset-0 w-full h-full object-cover" />
@@ -417,7 +417,7 @@ app.get('/gatherings', (c) => {
       </header>
 
       {/* Hero / Header block */}
-      <section class="pt-28 md:pt-32 bg-[#faf7f2]">
+      <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           {/* Left column: Title + subtitle matching reference */}
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
