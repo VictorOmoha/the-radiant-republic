@@ -216,8 +216,8 @@ app.get('/about', (c) => {
               <a class="hover:text-brand-warm" href="/about">About</a>
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
               <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/#events">Events</a>
-              <a class="hover:text-brand-warm" href="/#give">Give</a>
+              <a class="hover:text-brand-warm" href="/events">Events</a>
+              <a class="hover:text-brand-warm" href="/events#give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -235,8 +235,8 @@ app.get('/about', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
           </div>
         </div>
       </header>
@@ -362,9 +362,9 @@ app.get('/about', (c) => {
               <h4 class="font-semibold">Next Steps</h4>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm">
                 <li><a href="/#about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/#events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>
@@ -390,8 +390,8 @@ app.get('/ministries', (c) => {
               <a class="hover:text-brand-warm" href="/about">About</a>
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
               <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/#events">Events</a>
-              <a class="hover:text-brand-warm" href="/#give">Give</a>
+              <a class="hover:text-brand-warm" href="/events">Events</a>
+              <a class="hover:text-brand-warm" href="/events#give">Give</a>
             </nav>
             <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
               <i class="fa fa-bars"></i>
@@ -404,8 +404,8 @@ app.get('/ministries', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
           </div>
         </div>
       </header>
@@ -533,9 +533,9 @@ app.get('/ministries', (c) => {
               <h4 class="font-semibold">Next Steps</h4>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm">
                 <li><a href="/about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/#events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>
@@ -562,8 +562,8 @@ app.get('/gatherings', (c) => {
               <a class="hover:text-brand-warm" href="/about">About</a>
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
               <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/#events">Events</a>
-              <a class="hover:text-brand-warm" href="/#give">Give</a>
+              <a class="hover:text-brand-warm" href="/events">Events</a>
+              <a class="hover:text-brand-warm" href="/events#give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -581,8 +581,8 @@ app.get('/gatherings', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
           </div>
         </div>
       </header>
@@ -679,9 +679,9 @@ app.get('/gatherings', (c) => {
               <h4 class="font-semibold">Next Steps</h4>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm">
                 <li><a href="/about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/#events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>
@@ -693,5 +693,171 @@ app.get('/gatherings', (c) => {
 })
 
 // Gatherings page
+
+// Events page
+app.get('/events', (c) => {
+  return c.render(
+    <>
+      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-24 items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
+              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+            </a>
+            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
+              <a class="hover:text-brand-warm" href="/">Home</a>
+              <a class="hover:text-brand-warm" href="/about">About</a>
+              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
+              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
+              <a class="hover:text-brand-warm" href="/events">Events</a>
+              <a class="hover:text-brand-warm" href="/events#give">Give</a>
+            </nav>
+            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        {/* Mobile menu */}
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
+          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
+            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
+            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
+            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
+            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
+          </div>
+        </div>
+      </header>
+
+      {/* Intro split with supplied design image */}
+      <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
+          <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Events</h1>
+            <p class="mt-2 text-gray-600">Gather with us for community, worship, and growth throughout the year.</p>
+          </div>
+          <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
+            <img src="https://page.gensparksite.com/v1/base64_upload/c45cfcddae15d7311f4413bf2e07ae46" alt="Events design" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/10"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Events content based on supplied design */}
+      <section class="bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+          <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
+            {/* Left: feature and list */}
+            <div class="md:col-span-2 grid gap-6">
+              {/* Feature event */}
+              <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+                <div class="flex items-start gap-4">
+                  <div class="flex-1">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Community Picnic</h2>
+                    <div class="text-gray-600 mt-1">April 23, 2024</div>
+                    <p class="mt-4 text-gray-700">Join us for a gather—great food and time together at the park.</p>
+                    <div class="mt-4"><a href="#" class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500">Register</a></div>
+                  </div>
+                  <img class="hidden sm:block w-28 h-28 object-cover rounded-lg" src="https://images.unsplash.com/photo-1529336953121-adb1189eff04?q=80&w=600&auto=format&fit=crop" alt="Picnic"/>
+                </div>
+              </div>
+
+              {/* Stacked list */}
+              <div class="grid gap-6">
+                <div class="grid grid-cols-3 gap-4 bg-white rounded-xl p-5 border border-brand-dark/10 items-center">
+                  <img class="col-span-1 rounded-lg object-cover aspect-[3/4] w-full" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=600&auto=format&fit=crop" alt="Youth"/>
+                  <div class="col-span-2">
+                    <div class="text-xl md:text-2xl font-extrabold text-gray-900">Youth Conference</div>
+                    <div class="text-gray-600">August 15, 2024</div>
+                    <p class="text-gray-700 mt-1">Grow together through worship, study, and community.</p>
+                    <div class="mt-3"><a class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500" href="#">Register</a></div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4 bg-white rounded-xl p-5 border border-brand-dark/10 items-center">
+                  <img class="col-span-1 rounded-lg object-cover aspect-[3/4] w-full" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=600&auto=format&fit=crop" alt="Family"/>
+                  <div class="col-span-2">
+                    <div class="text-xl md:text-2xl font-extrabold text-gray-900">Family Fun Day</div>
+                    <div class="text-gray-600">October 19, 2024</div>
+                    <p class="text-gray-700 mt-1">Enjoy games, food, and time together.</p>
+                    <div class="mt-3"><a class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500" href="#">Register</a></div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4 bg-white rounded-xl p-5 border border-brand-dark/10 items-center">
+                  <img class="col-span-1 rounded-lg object-cover aspect-[3/4] w-full" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600&auto=format&fit=crop" alt="Christmas"/>
+                  <div class="col-span-2">
+                    <div class="text-xl md:text-2xl font-extrabold text-gray-900">Christmas Service</div>
+                    <div class="text-gray-600">December 24, 2024</div>
+                    <p class="text-gray-700 mt-1">Join us for a special candlelight service.</p>
+                    <div class="mt-3"><a class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500" href="#">Register</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: calendar + CTA */}
+            <div class="grid gap-6">
+              <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+                <h3 class="text-2xl font-extrabold text-gray-900">Event Calendar</h3>
+                <div class="mt-4 text-sm text-gray-700">
+                  <div class="flex items-center justify-between mb-3">
+                    <button class="px-2 py-1 rounded border border-black/10 bg-white text-gray-700" aria-label="Prev">&lt;</button>
+                    <div class="font-semibold">April 2024</div>
+                    <button class="px-2 py-1 rounded border border-black/10 bg-white text-gray-700" aria-label="Next">&gt;</button>
+                  </div>
+                  <div class="grid grid-cols-7 gap-1 text-center">
+                    <div class="text-gray-500">SUN</div><div class="text-gray-500">MON</div><div class="text-gray-500">TUE</div><div class="text-gray-500">WED</div><div class="text-gray-500">THU</div><div class="text-gray-500">FRI</div><div class="text-gray-500">SAT</div>
+                    <div class="opacity-30">31</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                    <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div class="rounded-full bg-amber-500 text-gray-900 font-bold">13</div>
+                    <div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+                    <div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div>
+                    <div>28</div><div>29</div><div>30</div><div class="opacity-30">1</div><div class="opacity-30">2</div><div class="opacity-30">3</div><div class="opacity-30">4</div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-xl p-6 md:p-8 bg-amber-500 text-gray-900 border border-brand-dark/10">
+                <h3 class="text-3xl font-extrabold">Join Us</h3>
+                <p class="mt-2">Let's maintain a community together and enjoy rich experiences throughout the year.</p>
+                <div class="mt-4"><a href="/gatherings" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Join us at an event</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-white border-t border-black/10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
+            <div>
+              <div class="flex items-center gap-2 font-bold tracking-wide">
+                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+              </div>
+              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
+            </div>
+            <div>
+              <h4 class="font-semibold">Contact</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
+                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
+                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold">Next Steps</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><a href="/about" class="hover:text-gray-900">About</a></li>
+                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
+                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
+        </div>
+      </footer>
+    </>
+  )
+})
 
 export default app
