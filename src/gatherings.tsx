@@ -15,7 +15,7 @@ const Header = () => (
           <a class="hover:text-brand-warm" href="/">Home</a>
           <a class="hover:text-brand-warm" href="/about">About</a>
           <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-          <a class="hover:text-brand-warm" href="/#ministries">Ministries</a>
+          <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
           <a class="hover:text-brand-warm" href="/#events">Events</a>
           <a class="hover:text-brand-warm" href="/#give">Give</a>
           <div class="flex items-center gap-4 text-base">
@@ -34,7 +34,7 @@ const Header = () => (
         <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
         <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
         <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-        <a class="block py-2 hover:text-brand-warm" href="/#ministries">Ministries</a>
+        <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
         <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
         <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
       </div>

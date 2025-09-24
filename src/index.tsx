@@ -20,7 +20,7 @@ app.get('/', (c) => {
               <a class="hover:text-amber-600" href="#home">Home</a>
               <a class="hover:text-amber-600" href="/about">About</a>
               <a class="hover:text-amber-600" href="/gatherings">Gatherings</a>
-              <a class="hover:text-amber-600" href="#ministries">Ministries</a>
+              <a class="hover:text-amber-600" href="/ministries">Ministries</a>
               <a class="hover:text-amber-600" href="#events">Events</a>
               <a class="hover:text-amber-600" href="#give">Give</a>
               <div class="flex items-center gap-4 text-base">
@@ -39,7 +39,7 @@ app.get('/', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="#home">Home</a>
             <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="#ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="#events">Events</a>
             <a class="block py-2 hover:text-brand-warm" href="#give">Give</a>
           </div>
@@ -215,7 +215,7 @@ app.get('/about', (c) => {
               <a class="hover:text-brand-warm" href="/">Home</a>
               <a class="hover:text-brand-warm" href="/about">About</a>
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/#ministries">Ministries</a>
+              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
               <a class="hover:text-brand-warm" href="/#events">Events</a>
               <a class="hover:text-brand-warm" href="/#give">Give</a>
               <div class="flex items-center gap-4 text-base">
@@ -234,7 +234,7 @@ app.get('/about', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
             <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
             <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
           </div>
@@ -375,6 +375,177 @@ app.get('/about', (c) => {
   )
 })
 
+// Ministries page
+app.get('/ministries', (c) => {
+  return c.render(
+    <>
+      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-24 items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
+              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+            </a>
+            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
+              <a class="hover:text-brand-warm" href="/">Home</a>
+              <a class="hover:text-brand-warm" href="/about">About</a>
+              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
+              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
+              <a class="hover:text-brand-warm" href="/#events">Events</a>
+              <a class="hover:text-brand-warm" href="/#give">Give</a>
+            </nav>
+            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
+          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
+            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
+            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
+            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
+            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
+          </div>
+        </div>
+      </header>
+
+      {/* Top split: title/image left, Serve header right */}
+      <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
+          <div class="relative rounded-xl overflow-hidden min-h-[300px] md:min-h-[420px]">
+            <img src="https://page.gensparksite.com/v1/base64_upload/5080824a27200ae5672f8e9f150640a4" alt="Ministries hero" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute bottom-6 left-6 right-6 text-white">
+              <div class="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95]">MINISTRIES</div>
+              <div class="mt-2 text-lg font-semibold tracking-wide">THE RADIANT REPUBLIC</div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Serve</h1>
+            <p class="mt-3 text-gray-600">Join a team, make difference.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#list" class="btn btn-primary">Explore Ministries</a>
+              <a href="/gatherings#messages" class="btn btn-outline">Watch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Grid content */}
+      <section id="list" class="bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            {/* Left column heading and Sundays times card */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h2 class="text-3xl font-extrabold text-gray-900">Ministries</h2>
+              <div class="mt-6 grid grid-cols-2 gap-4 items-stretch">
+                <div class="rounded-lg bg-amber-500 text-gray-900 p-5">
+                  <div class="font-semibold">WORSHIP TEAM</div>
+                  <p class="mt-2 text-sm">Enjoy an invite to serve across music and creative arts.</p>
+                </div>
+                <div class="rounded-lg bg-white border border-black/10 p-5">
+                  <div class="text-gray-900 font-semibold">Sundays</div>
+                  <div class="mt-2 space-y-1 text-2xl font-bold text-gray-900">
+                    <div>9:00 <span class="text-sm align-top">AM</span></div>
+                    <div>11:00 <span class="text-sm align-top">AM</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Youth Ministry card with photo */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10 grid grid-cols-3 gap-4 items-center">
+              <img class="col-span-1 rounded-lg object-cover aspect-square w-full" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop" alt="Youth"/>
+              <div class="col-span-2">
+                <h3 class="text-2xl font-extrabold text-gray-900">Youth Ministry</h3>
+                <p class="text-gray-700 mt-2">Join students as they grow in faith and community.</p>
+              </div>
+            </div>
+
+            {/* Children's and Small Groups */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h3 class="text-3xl font-extrabold text-gray-900">Children’s Ministry</h3>
+              <div class="mt-4 rounded-lg overflow-hidden relative">
+                <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1589831377283-33cb1cc6bd5c?q=80&w=1200&auto=format&fit=crop" alt="Children"/>
+              </div>
+              <div class="mt-6">
+                <div class="font-semibold">Small Groups</div>
+                <div class="text-sm text-gray-600">John 20:1-18</div>
+                <p class="text-gray-700 mt-1">Experience an all-age environment cared by incredible teams.</p>
+              </div>
+            </div>
+
+            {/* Women's and Men's and Prayer */}
+            <div class="grid gap-6">
+              <div class="rounded-xl p-6 bg-brand-warm text-gray-900 border border-brand-dark/10">
+                <h3 class="text-2xl font-extrabold">Women’s Ministry</h3>
+                <div class="text-gray-800/90 font-semibold mt-1">April 23, 2024</div>
+                <p class="mt-2">Gatherings and Bible studies to encourage and equip.</p>
+              </div>
+              <div class="rounded-xl p-6 bg-white border border-black/10">
+                <h3 class="text-2xl font-extrabold text-gray-900">MEN Ministry</h3>
+                <div class="text-gray-600 mt-1">May 5, 2024</div>
+                <p class="text-gray-700 mt-2">Join our weekly gathering for study, prayer, and community.</p>
+              </div>
+              <div class="rounded-xl overflow-hidden">
+                <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Prayer"/>
+              </div>
+              <div class="rounded-xl p-6 bg-white border border-black/10">
+                <h3 class="text-2xl font-extrabold text-gray-900">Prayer Ministry</h3>
+                <p class="text-gray-700 mt-2">Our prayer team would love to pray for you.</p>
+              </div>
+            </div>
+
+            {/* Bottom CTA row */}
+            <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
+              <h3 class="text-2xl font-extrabold text-gray-900">Get Involved</h3>
+              <p class="mt-2 text-gray-700">Need prayer? We would love to pray for you. Fill out our online form to let us know how we can support you.</p>
+            </div>
+            <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
+              <h3 class="text-2xl font-extrabold text-gray-900">Join a Ministry</h3>
+              <p class="mt-2 text-gray-700">Ready to serve? Let us know.</p>
+              <div class="mt-4"><a href="#" class="btn btn-primary">Serve</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-white border-t border-black/10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
+            <div>
+              <div class="flex items-center gap-2 font-bold tracking-wide">
+                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+              </div>
+              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
+            </div>
+            <div>
+              <h4 class="font-semibold">Contact</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
+                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
+                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold">Next Steps</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><a href="/about" class="hover:text-gray-900">About</a></li>
+                <li><a href="/#events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
+                <li><a href="/#give" class="hover:text-gray-900">Give</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
+        </div>
+      </footer>
+    </>
+  )
+})
+
 // Gatherings page
 app.get('/gatherings', (c) => {
   return c.render(
@@ -390,7 +561,7 @@ app.get('/gatherings', (c) => {
               <a class="hover:text-brand-warm" href="/">Home</a>
               <a class="hover:text-brand-warm" href="/about">About</a>
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/#ministries">Ministries</a>
+              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
               <a class="hover:text-brand-warm" href="/#events">Events</a>
               <a class="hover:text-brand-warm" href="/#give">Give</a>
               <div class="flex items-center gap-4 text-base">
@@ -409,7 +580,7 @@ app.get('/gatherings', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
             <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/#ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="/#events">Events</a>
             <a class="block py-2 hover:text-brand-warm" href="/#give">Give</a>
           </div>
@@ -520,5 +691,7 @@ app.get('/gatherings', (c) => {
     </>
   )
 })
+
+// Gatherings page
 
 export default app
