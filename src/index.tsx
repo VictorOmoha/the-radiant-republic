@@ -21,8 +21,8 @@ app.get('/', (c) => {
               <a class="hover:text-amber-600" href="/about">About</a>
               <a class="hover:text-amber-600" href="/gatherings">Gatherings</a>
               <a class="hover:text-amber-600" href="/ministries">Ministries</a>
-              <a class="hover:text-amber-600" href="#events">Events</a>
-              <a class="hover:text-amber-600" href="#give">Give</a>
+              <a class="hover:text-amber-600" href="/events">Events</a>
+              <a class="hover:text-amber-600" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-amber-600" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-amber-600" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -40,8 +40,8 @@ app.get('/', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="#events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
           </div>
         </div>
       </header>
@@ -187,9 +187,9 @@ app.get('/', (c) => {
               <h4 class="font-semibold">Next Steps</h4>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm">
                 <li><a href="#about" class="hover:text-gray-900">Plan a Visit</a></li>
-                <li><a href="#events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>
@@ -217,7 +217,7 @@ app.get('/about', (c) => {
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
               <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
               <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/events#give">Give</a>
+              <a class="hover:text-brand-warm" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -236,7 +236,7 @@ app.get('/about', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
           </div>
         </div>
       </header>
@@ -364,7 +364,7 @@ app.get('/about', (c) => {
                 <li><a href="/#about" class="hover:text-gray-900">About</a></li>
                 <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>
@@ -391,7 +391,7 @@ app.get('/ministries', (c) => {
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
               <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
               <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/events#give">Give</a>
+              <a class="hover:text-brand-warm" href="/give">Give</a>
             </nav>
             <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
               <i class="fa fa-bars"></i>
@@ -405,7 +405,7 @@ app.get('/ministries', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
           </div>
         </div>
       </header>
@@ -535,7 +535,7 @@ app.get('/ministries', (c) => {
                 <li><a href="/about" class="hover:text-gray-900">About</a></li>
                 <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>
@@ -563,7 +563,7 @@ app.get('/gatherings', (c) => {
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
               <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
               <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/events#give">Give</a>
+              <a class="hover:text-brand-warm" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -582,7 +582,7 @@ app.get('/gatherings', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
           </div>
         </div>
       </header>
@@ -681,7 +681,7 @@ app.get('/gatherings', (c) => {
                 <li><a href="/about" class="hover:text-gray-900">About</a></li>
                 <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>
@@ -693,6 +693,141 @@ app.get('/gatherings', (c) => {
 })
 
 // Gatherings page
+
+// Give page
+app.get('/give', (c) => {
+  return c.render(
+    <>
+      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-24 items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
+              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+            </a>
+            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
+              <a class="hover:text-brand-warm" href="/">Home</a>
+              <a class="hover:text-brand-warm" href="/about">About</a>
+              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
+              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
+              <a class="hover:text-brand-warm" href="/events">Events</a>
+              <a class="hover:text-brand-warm" href="/give">Give</a>
+            </nav>
+            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        {/* Mobile menu */}
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
+          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
+            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
+            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
+            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
+            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero and summary based on design */}
+      <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
+            <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
+              <div class="text-5xl md:text-7xl font-black tracking-tight text-gray-900">GIVE</div>
+              <h1 class="mt-4 text-3xl md:text-4xl font-extrabold text-gray-900">Support Our Mission</h1>
+              <p class="mt-2 text-gray-600">Easily and securely donate using our online platform.</p>
+            </div>
+            <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
+              <img src="https://page.gensparksite.com/v1/base64_upload/a0f6fc1ab938d9f12057b5f3854137f4" alt="Give design" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-black/10"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Options */}
+      <section class="bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">Online Giving</h2>
+              <p class="mt-2 text-gray-700">Easily and securely donate using our online platform.</p>
+              <div class="mt-4"><a href="#" class="btn btn-primary">Donate Now</a></div>
+            </div>
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">One-Time Gift</h2>
+              <p class="mt-2 text-gray-700">Make a single, impactful donation today.</p>
+              <div class="mt-4"><a href="#" class="btn btn-outline">Give Once</a></div>
+            </div>
+          </div>
+
+          <div class="mt-10 grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h3 class="text-3xl font-extrabold text-gray-900">Ways to Give</h3>
+              <ul class="mt-4 space-y-3 text-gray-700">
+                <li>Online — use our secure platform above</li>
+                <li>Text-to-Give — Text: [keyword] to (number)</li>
+                <li>By Mail — Send checks to our church office</li>
+              </ul>
+            </div>
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h3 class="text-3xl font-extrabold text-gray-900">Secure Giving</h3>
+              <div class="mt-4 grid grid-cols-3 gap-4 text-sm text-gray-700">
+                <div class="flex flex-col items-center"><i class="fa fa-shield-halved text-2xl text-brand-dark"></i><div class="mt-1">Secure</div></div>
+                <div class="flex flex-col items-center"><i class="fa fa-lock text-2xl text-brand-dark"></i><div class="mt-1">Protected</div></div>
+                <div class="flex flex-col items-center"><i class="fa fa-certificate text-2xl text-brand-dark"></i><div class="mt-1">Certified</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            <div class="md:col-span-2 bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900 border border-brand-dark/10">
+              <h3 class="text-2xl font-extrabold">Thank You</h3>
+              <p class="mt-2">Your support has changed lives and helped our community in many meaningful ways. We’re grateful.</p>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+              <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1514516345957-556ca7c9a7b4?q=80&w=1200&auto=format&fit=crop" alt="Family"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-white border-t border-black/10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
+            <div>
+              <div class="flex items-center gap-2 font-bold tracking-wide">
+                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+              </div>
+              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
+            </div>
+            <div>
+              <h4 class="font-semibold">Contact</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
+                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
+                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold">Next Steps</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><a href="/about" class="hover:text-gray-900">About</a></li>
+                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
+                <li><a href="/gatherings#messages" class="hover:text-gray-900">Watch Messages</a></li>
+                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
+        </div>
+      </footer>
+    </>
+  )
+})
 
 // Events page
 app.get('/events', (c) => {
@@ -710,7 +845,7 @@ app.get('/events', (c) => {
               <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
               <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
               <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/events#give">Give</a>
+              <a class="hover:text-brand-warm" href="/give">Give</a>
             </nav>
             <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
               <i class="fa fa-bars"></i>
@@ -725,7 +860,7 @@ app.get('/events', (c) => {
             <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
             <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
             <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
+            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
           </div>
         </div>
       </header>
@@ -849,7 +984,7 @@ app.get('/events', (c) => {
                 <li><a href="/about" class="hover:text-gray-900">About</a></li>
                 <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
               </ul>
             </div>
           </div>

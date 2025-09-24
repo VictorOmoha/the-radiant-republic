@@ -17,7 +17,7 @@ const Header = () => (
           <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
           <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
           <a class="hover:text-brand-warm" href="/events">Events</a>
-          <a class="hover:text-brand-warm" href="/events#give">Give</a>
+          <a class="hover:text-brand-warm" href="/give">Give</a>
           <div class="flex items-center gap-4 text-base">
             <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
             <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -36,7 +36,7 @@ const Header = () => (
         <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
         <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
         <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-        <a class="block py-2 hover:text-brand-warm" href="/events#give">Give</a>
+        <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
       </div>
     </div>
   </header>
@@ -139,7 +139,7 @@ const Page = () => (
               <li><a href="/about" class="hover:text-gray-900">About</a></li>
               <li><a href="/events" class="hover:text-gray-900">Events</a></li>
               <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-              <li><a href="/events#give" class="hover:text-gray-900">Give</a></li>
+              <li><a href="/give" class="hover:text-gray-900">Give</a></li>
             </ul>
           </div>
         </div>
