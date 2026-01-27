@@ -64,10 +64,10 @@ app.get('/', (c) => {
             </div>
             {/* Right: headline and CTA */}
             <div class="bg-white rounded-xl p-8 md:p-10 flex flex-col justify-center border border-brand-dark/10">
-              <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-[1.05]">Come<br/>As You Are</h1>
-              <p class="mt-4 text-gray-600">Join us this Sunday</p>
+              <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1]">Welcome. We're really glad you're here.</h1>
+              <p class="mt-4 text-gray-600 leading-relaxed">If you've been longing for more depth in your walk with God—more clarity, more maturity, more alignment—you're not alone. And you didn't arrive here by accident.</p>
               <div class="mt-6 flex flex-wrap gap-3">
-                <a href="/gatherings" class="btn btn-primary">Join this Sunday</a>
+                <a href="/citizenship" class="btn btn-primary">Become a Citizen</a>
                 <a href="#messages" class="btn btn-outline">Watch</a>
               </div>
             </div>
@@ -97,11 +97,11 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            {/* Feature message intro */}
+            {/* About intro */}
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h3 class="text-3xl font-extrabold text-gray-900">He Is Risen</h3>
-              <div class="text-gray-600 mt-1">John 20:1–18</div>
-              <p class="mt-4 text-gray-700">Enjoy a slow, attentive time in news reheartening a good one—and celebration.</p>
+              <h3 class="text-3xl font-extrabold text-gray-900">Who We Are</h3>
+              <p class="mt-4 text-gray-700">At The Radiant Republic, we walk with you as you grow into the radiant reflection of Christ. Not rushed. Not pressured. But intentional, accountable, and rooted in truth.</p>
+              <p class="mt-3 text-gray-700">This is not church as usual. This is a journey for believers who are hungry to be formed—in character, in purity, and in purpose.</p>
             </div>
 
             {/* Latest Sermon video */}
@@ -143,17 +143,20 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            {/* Get Involved */}
+            {/* We Want to Meet You */}
             <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Get Involved</h3>
-              <p class="mt-2 text-gray-700">Need prayer? We would love to pray for you. Fill out our online form to let us know how we can support you.</p>
-            </div>
-            {/* Prayer Requests */}
-            <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Prayer Requests</h3>
-              <p class="mt-2 text-gray-700">Need prayer? We would love to pray for you.</p>
+              <h3 class="text-2xl font-extrabold text-gray-900">We Want to Meet You</h3>
+              <p class="mt-2 text-gray-700">We want to grow with you. And we want to help you become all God is shaping in this season.</p>
               <div class="mt-4">
-                <a href="#" class="btn btn-primary">Submit Request</a>
+                <a href="/gatherings" class="btn btn-outline">Plan a Visit</a>
+              </div>
+            </div>
+            {/* Become a Citizen */}
+            <div class="rounded-xl p-6 md:p-8 bg-brand-warm text-gray-900 border border-black/10">
+              <h3 class="text-2xl font-extrabold">Become a Citizen</h3>
+              <p class="mt-2">Citizenship here is spiritual and intentional. To be a Citizen of The Radiant Republic is to choose growth, maturity, accountability, and alignment with what God is doing in this season.</p>
+              <div class="mt-4">
+                <a href="/citizenship" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a>
               </div>
             </div>
           </div>
@@ -168,17 +171,19 @@ app.get('/', (c) => {
               <div class="flex items-center gap-2 font-bold tracking-wide">
                 <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logomark" class="h-20 md:h-24 w-auto"/>
               </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
+              <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
+              <p class="mt-3 text-gray-600 text-sm">We can't wait to walk this journey with you.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+                <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="#"><i class="fab fa-facebook" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
+              <p class="mt-2 text-gray-500 text-xs">@TheRadiantRepublic</p>
             </div>
             <div>
               <h4 class="font-semibold">Contact</h4>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
                 <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
                 <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
               </ul>
@@ -186,10 +191,10 @@ app.get('/', (c) => {
             <div>
               <h4 class="font-semibold">Next Steps</h4>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="#about" class="hover:text-gray-900">Plan a Visit</a></li>
-                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
-                <li><a href="#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
+                <li><a href="/gatherings" class="hover:text-gray-900">Plan a Visit</a></li>
+                <li><a href="/about" class="hover:text-gray-900">About Us</a></li>
+                <li><a href="/ministries" class="hover:text-gray-900">Ministries</a></li>
+                <li><a href="/citizenship" class="hover:text-gray-900">Become a Citizen</a></li>
               </ul>
             </div>
           </div>
@@ -257,20 +262,20 @@ app.get('/about', (c) => {
           </div>
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
             <h1 class="text-5xl font-extrabold text-gray-900">About Us</h1>
-            <p class="mt-2 text-gray-600">We’re a church family shaped by Jesus—warm, hopeful, and always moving toward people.</p>
+            <p class="mt-2 text-gray-600 text-lg">We're building people—and we're building with you in mind.</p>
             <div class="mt-8 space-y-6">
               <div class="flex gap-4">
                 <div class="w-1 bg-brand-warm rounded"></div>
                 <div>
-                  <h3 class="text-2xl font-extrabold text-gray-900">Our Story</h3>
-                  <p class="text-gray-700 mt-1">The Radiant Republic began in a living room in Cleveland, OH with a simple desire: to shine light in our city through hospitality, worship, and discipleship.</p>
+                  <h3 class="text-2xl font-extrabold text-gray-900">Our Purpose</h3>
+                  <p class="text-gray-700 mt-1">The Radiant Republic exists because we believe God is preparing a glorious Church—a people being formed into the radiant reflection of Christ (Ephesians 5:27).</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-1 bg-brand-dark rounded"></div>
                 <div>
-                  <h3 class="text-2xl font-extrabold text-gray-900">Our Mission</h3>
-                  <p class="text-gray-700 mt-1">Make the Good News accessible to all people everywhere—welcoming, equipping, and sending carriers of hope.</p>
+                  <h3 class="text-2xl font-extrabold text-gray-900">Our Journey</h3>
+                  <p class="text-gray-700 mt-1">This journey is about maturity. About purity that makes power available. About believers who take responsibility for their walk with God and their place in the body.</p>
                 </div>
               </div>
             </div>
@@ -331,9 +336,10 @@ app.get('/about', (c) => {
                 <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Community"/>
               </div>
               <div class="rounded-xl p-6 bg-brand-warm text-gray-900 border border-brand-dark/10">
-                <h3 class="text-3xl font-extrabold">Join Our Community</h3>
-                <p class="mt-2">Find your people and your purpose at Radiant.</p>
-                <div class="mt-4"><a href="/gatherings" class="btn btn-outline">Plan a Visit</a></div>
+                <h3 class="text-3xl font-extrabold">Walk With Us</h3>
+                <p class="mt-2">We don't replace your local church. We walk with you, sharpen you, and help you return to your world clearer, stronger, and more aligned with Christ.</p>
+                <p class="mt-2">If you're tired of surface-level faith and ready for intentional growth, we would love to walk this journey with you.</p>
+                <div class="mt-4"><a href="/citizenship" class="btn btn-outline">Become a Citizen</a></div>
               </div>
             </div>
           </div>
@@ -422,11 +428,14 @@ app.get('/ministries', (c) => {
             </div>
           </div>
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Serve</h1>
-            <p class="mt-3 text-gray-600">Join a team, make difference.</p>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Ministries</h1>
+            <p class="mt-3 text-gray-700 text-lg">There is a place for you here.</p>
+            <p class="mt-3 text-gray-600">We believe every believer carries grace, gifting, and responsibility within the body of Christ.</p>
+            <p class="mt-3 text-gray-600">If you carry a burden for prayer, discipleship, service, or building others—we want to walk with you.</p>
+            <p class="mt-3 text-gray-600">This is not about filling roles. It's about stewarding grace and expressing purpose.</p>
             <div class="mt-6 flex flex-wrap gap-3">
               <a href="#list" class="btn btn-primary">Explore Ministries</a>
-              <a href="/gatherings#messages" class="btn btn-outline">Watch</a>
+              <a href="#join" class="btn btn-outline">Join a Team</a>
             </div>
           </div>
         </div>
@@ -499,13 +508,13 @@ app.get('/ministries', (c) => {
 
             {/* Bottom CTA row */}
             <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Get Involved</h3>
-              <p class="mt-2 text-gray-700">Need prayer? We would love to pray for you. Fill out our online form to let us know how we can support you.</p>
+              <h3 class="text-2xl font-extrabold text-gray-900">Stewarding Grace</h3>
+              <p class="mt-2 text-gray-700">This is not about filling roles. It's about stewarding grace and expressing purpose within the body of Christ.</p>
             </div>
-            <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Join a Ministry</h3>
-              <p class="mt-2 text-gray-700">Ready to serve? Let us know.</p>
-              <div class="mt-4"><a href="#" class="btn btn-primary">Serve</a></div>
+            <div id="join" class="rounded-xl p-6 md:p-8 bg-brand-warm text-gray-900 border border-black/10">
+              <h3 class="text-2xl font-extrabold">Join a Team</h3>
+              <p class="mt-2">If you carry a burden for prayer, discipleship, service, or building others—we want to walk with you.</p>
+              <div class="mt-4"><a href="#" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Join a Team</a></div>
             </div>
           </div>
         </div>
@@ -592,8 +601,13 @@ app.get('/gatherings', (c) => {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           {/* Left column: Title + subtitle matching reference */}
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">Gatherings</h1>
-            <p class="mt-2 text-gray-600 text-lg">The Radiant Republic</p>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">Radiant Gatherings</h1>
+            <p class="mt-4 text-gray-700 text-lg leading-relaxed">When we gather, we gather with intention.</p>
+            <p class="mt-3 text-gray-600">Radiant Gatherings are spaces where prayer is reverent, teaching is clear, and formation is prioritized over performance.</p>
+            <p class="mt-3 text-gray-600">You're not a spectator here. You're part of a people learning to hear God clearly and respond faithfully.</p>
+            <div class="mt-6">
+              <a href="#plan" class="btn btn-primary">Plan to Attend</a>
+            </div>
           </div>
           {/* Right column: image */}
           <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
@@ -648,9 +662,9 @@ app.get('/gatherings', (c) => {
                 <li>June 24, 2024</li>
               </ul>
             </div>
-            <div class="bg-white rounded-xl p-6 border border-brand-dark/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">What To Expect</h3>
-              <p class="mt-2 text-gray-700">Meet our team in the lobby. Enjoy coffee & donuts. We can’t wait to meet you.</p>
+            <div id="plan" class="bg-white rounded-xl p-6 border border-brand-dark/10">
+              <h3 class="text-2xl font-extrabold text-gray-900">We Want to Meet You</h3>
+              <p class="mt-2 text-gray-700">Whether you're joining physically or virtually, we want to meet you. Meet our team in the lobby. Enjoy coffee & donuts. We can't wait to meet you.</p>
               <div class="mt-4"><a href="/about" class="btn btn-outline">Plan Your Visit</a></div>
             </div>
           </div>
@@ -985,6 +999,186 @@ app.get('/events', (c) => {
                 <li><a href="/events" class="hover:text-gray-900">Events</a></li>
                 <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
                 <li><a href="/give" class="hover:text-gray-900">Give</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
+        </div>
+      </footer>
+    </>
+  )
+})
+
+// Citizenship page
+app.get('/citizenship', (c) => {
+  return c.render(
+    <>
+      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-24 items-center justify-between">
+            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
+              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+            </a>
+            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
+              <a class="hover:text-brand-warm" href="/">Home</a>
+              <a class="hover:text-brand-warm" href="/about">About</a>
+              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
+              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
+              <a class="hover:text-brand-warm" href="/events">Events</a>
+              <a class="hover:text-brand-warm" href="/give">Give</a>
+            </nav>
+            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        {/* Mobile menu */}
+        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
+          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
+            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
+            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
+            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
+            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
+            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
+          <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Become a Citizen</h1>
+            <p class="mt-4 text-gray-700 text-lg leading-relaxed">Citizenship here is spiritual and intentional.</p>
+            <p class="mt-3 text-gray-600">To be a Citizen of The Radiant Republic is to choose growth, maturity, accountability, and alignment with what God is doing in this season.</p>
+          </div>
+          <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
+            <img src="https://page.gensparksite.com/v1/base64_upload/9d203efd148787105356059dce4824ef" alt="Citizenship" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute bottom-6 left-6 right-6 text-white">
+              <div class="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95]">CITIZENSHIP</div>
+              <div class="mt-2 text-lg font-semibold tracking-wide">THE RADIANT REPUBLIC</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content */}
+      <section class="bg-[#faf7f2]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            {/* What is a Citizen */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h2 class="text-3xl font-extrabold text-gray-900">What is a Citizen?</h2>
+              <p class="mt-4 text-gray-700">A citizen is someone willing to be formed—in character, in purity, and in responsibility as part of the body of Christ.</p>
+              <p class="mt-3 text-gray-600">This does not mean leaving your local church. It does not mean isolation or elitism.</p>
+              <p class="mt-3 text-gray-600">It means walking deliberately with others who are serious about becoming a glorious people unto God.</p>
+            </div>
+
+            {/* The Journey */}
+            <div class="bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900 border border-brand-dark/10">
+              <h2 class="text-3xl font-extrabold">The Journey</h2>
+              <div class="mt-4 space-y-4">
+                <div class="flex gap-3">
+                  <div class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-sm">1</div>
+                  <div>
+                    <div class="font-semibold">Formation & Maturity</div>
+                    <p class="text-gray-800 text-sm">Helping believers grow into depth and responsibility.</p>
+                  </div>
+                </div>
+                <div class="flex gap-3">
+                  <div class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-sm">2</div>
+                  <div>
+                    <div class="font-semibold">Citizenship & Identity</div>
+                    <p class="text-gray-800 text-sm">What it means to belong to a glorious people.</p>
+                  </div>
+                </div>
+                <div class="flex gap-3">
+                  <div class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-sm">3</div>
+                  <div>
+                    <div class="font-semibold">Prayer & Alignment</div>
+                    <p class="text-gray-800 text-sm">Prayer as posture, not performance.</p>
+                  </div>
+                </div>
+                <div class="flex gap-3">
+                  <div class="w-8 h-8 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-sm">4</div>
+                  <div>
+                    <div class="font-semibold">Community & Accountability</div>
+                    <p class="text-gray-800 text-sm">Growing together with sincerity.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Not Church as Usual */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h3 class="text-2xl font-extrabold text-gray-900">Not Church as Usual</h3>
+              <p class="mt-3 text-gray-700">This is a journey for believers who are hungry to be formed—in character, in purity, and in purpose.</p>
+              <p class="mt-3 text-gray-600">We don't replace your local church. We walk with you, sharpen you, and help you return to your world clearer, stronger, and more aligned with Christ.</p>
+            </div>
+
+            {/* CTA */}
+            <div class="bg-gray-900 rounded-xl p-6 md:p-8 text-white border border-brand-dark/10">
+              <h3 class="text-2xl font-extrabold">Ready to Begin?</h3>
+              <p class="mt-3 text-gray-300">If you're tired of surface-level faith and ready for intentional growth, we would love to walk this journey with you.</p>
+              <div class="mt-6">
+                <a href="#" class="btn btn-primary bg-brand-warm text-gray-900 hover:bg-amber-500">Become a Citizen</a>
+              </div>
+            </div>
+
+            {/* Images */}
+            <div class="grid grid-cols-2 gap-4">
+              <img class="rounded-lg object-cover h-48 w-full" src="https://images.unsplash.com/photo-1529336953121-adb1189eff04?q=80&w=1000&auto=format&fit=crop" alt="Community"/>
+              <img class="rounded-lg object-cover h-48 w-full" src="https://images.unsplash.com/photo-1514516345957-556ca7c9a7b4?q=80&w=1000&auto=format&fit=crop" alt="Gathering"/>
+            </div>
+
+            {/* Next Steps */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h3 class="text-2xl font-extrabold text-gray-900">Next Steps</h3>
+              <p class="mt-3 text-gray-700">We would love to stay connected with you.</p>
+              <p class="mt-3 text-gray-600">Follow us on Instagram, TikTok, Facebook, and YouTube @TheRadiantRepublic.</p>
+              <p class="mt-3 text-gray-700 font-medium">We can't wait to walk this journey with you.</p>
+              <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
+                <a class="hover:text-brand-warm" aria-label="Facebook" href="#"><i class="fab fa-facebook" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer class="bg-white border-t border-black/10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
+            <div>
+              <div class="flex items-center gap-2 font-bold tracking-wide">
+                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
+              </div>
+              <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
+              <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
+                <a class="hover:text-brand-warm" aria-label="Facebook" href="#"><i class="fab fa-facebook" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold">Contact</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold">Next Steps</h4>
+              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+                <li><a href="/about" class="hover:text-gray-900">About</a></li>
+                <li><a href="/gatherings" class="hover:text-gray-900">Gatherings</a></li>
+                <li><a href="/ministries" class="hover:text-gray-900">Ministries</a></li>
+                <li><a href="/citizenship" class="hover:text-gray-900">Become a Citizen</a></li>
               </ul>
             </div>
           </div>
