@@ -138,8 +138,8 @@ app.get('/', (c) => {
                 <p class="text-gray-700 mt-2">An evening of worship and stories. Family-friendly with space for prayer.</p>
               </div>
               <div class="grid grid-cols-2 gap-4">
-                <img class="rounded-lg object-cover h-36 w-full" src="https://images.unsplash.com/photo-1529336953121-adb1189eff04?q=80&w=1000&auto=format&fit=crop" alt="Community"/>
-                <img class="rounded-lg object-cover h-36 w-full" src="https://images.unsplash.com/photo-1514516345957-556ca7c9a7b4?q=80&w=1000&auto=format&fit=crop" alt="Gathering"/>
+                <img class="rounded-lg object-cover h-36 w-full" src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Community"/>
+                <img class="rounded-lg object-cover h-36 w-full" src="https://images.pexels.com/photos/14664088/pexels-photo-14664088.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Gathering"/>
               </div>
             </div>
 
