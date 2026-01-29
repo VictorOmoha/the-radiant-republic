@@ -176,7 +176,7 @@ app.get('/', (c) => {
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
-                <a class="hover:text-brand-warm" aria-label="Facebook" href="#"><i class="fab fa-facebook" /></a>
+                <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
               <p class="mt-2 text-gray-500 text-xs">@TheRadiantRepublic</p>
@@ -1142,7 +1142,7 @@ app.get('/citizenship', (c) => {
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
-                <a class="hover:text-brand-warm" aria-label="Facebook" href="#"><i class="fab fa-facebook" /></a>
+                <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
             </div>
@@ -1162,7 +1162,7 @@ app.get('/citizenship', (c) => {
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
-                <a class="hover:text-brand-warm" aria-label="Facebook" href="#"><i class="fab fa-facebook" /></a>
+                <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
             </div>
