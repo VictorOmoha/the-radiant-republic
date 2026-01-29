@@ -24,7 +24,7 @@ app.get('/', (c) => {
               <a class="hover:text-amber-600" href="/events">Events</a>
               <a class="hover:text-amber-600" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
-                <a class="hover:text-amber-600" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-amber-600" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-amber-600" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
             </nav>
@@ -174,7 +174,7 @@ app.get('/', (c) => {
               <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
               <p class="mt-3 text-gray-600 text-sm">We can't wait to walk this journey with you.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -224,7 +224,7 @@ app.get('/about', (c) => {
               <a class="hover:text-brand-warm" href="/events">Events</a>
               <a class="hover:text-brand-warm" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
             </nav>
@@ -574,7 +574,7 @@ app.get('/gatherings', (c) => {
               <a class="hover:text-brand-warm" href="/events">Events</a>
               <a class="hover:text-brand-warm" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
             </nav>
@@ -1140,7 +1140,7 @@ app.get('/citizenship', (c) => {
               <p class="mt-3 text-gray-600">Follow us on Instagram, TikTok, Facebook, and YouTube @TheRadiantRepublic.</p>
               <p class="mt-3 text-gray-700 font-medium">We can't wait to walk this journey with you.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
@@ -1160,7 +1160,7 @@ app.get('/citizenship', (c) => {
               </div>
               <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>

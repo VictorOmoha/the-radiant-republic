@@ -19,7 +19,7 @@ const Header = () => (
           <a class="hover:text-brand-warm" href="/events">Events</a>
           <a class="hover:text-brand-warm" href="/give">Give</a>
           <div class="flex items-center gap-4 text-base">
-            <a class="hover:text-brand-warm" aria-label="Instagram" href="#"><i class="fab fa-instagram" /></a>
+            <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
             <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
           </div>
         </nav>
