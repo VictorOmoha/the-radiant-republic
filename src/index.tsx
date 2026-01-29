@@ -175,7 +175,7 @@ app.get('/', (c) => {
               <p class="mt-3 text-gray-600 text-sm">We can't wait to walk this journey with you.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
+                <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
@@ -1141,7 +1141,7 @@ app.get('/citizenship', (c) => {
               <p class="mt-3 text-gray-700 font-medium">We can't wait to walk this journey with you.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
+                <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
@@ -1161,7 +1161,7 @@ app.get('/citizenship', (c) => {
               <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="TikTok" href="#"><i class="fab fa-tiktok" /></a>
+                <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
               </div>
