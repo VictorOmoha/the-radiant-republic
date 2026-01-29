@@ -54,8 +54,8 @@ app.get('/', (c) => {
             <div class="relative rounded-xl overflow-hidden min-h-[320px] md:min-h-[460px]">
 <img src="/static/heroImage.png" alt="Radiant worship" class="absolute inset-0 w-full h-full object-cover"/>
               <div class="absolute inset-0 bg-black/25"></div>
-              <div class="absolute bottom-6 left-6 right-6">
-                <div class="text-white font-black leading-[0.95] text-4xl sm:text-5xl md:text-6xl tracking-tight">
+              <div class="absolute bottom-8 left-6 right-6 pb-2">
+                <div class="text-white font-black leading-[1] text-4xl sm:text-5xl md:text-6xl tracking-tight">
                   <div>THE</div>
                   <div>RADIANT</div>
                   <div>REPUBLIC</div>
