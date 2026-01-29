@@ -52,7 +52,7 @@ app.get('/', (c) => {
           <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
             {/* Left: image with title overlay */}
             <div class="relative rounded-xl overflow-hidden min-h-[320px] md:min-h-[460px]">
-              <img src="https://page.gensparksite.com/v1/base64_upload/9d203efd148787105356059dce4824ef" alt="Radiant worship" class="absolute inset-0 w-full h-full object-cover"/>
+              <img src="https://www.genspark.ai/api/files/s/tfTjKs6e" alt="Radiant worship" class="absolute inset-0 w-full h-full object-cover"/>
               <div class="absolute inset-0 bg-black/25"></div>
               <div class="absolute bottom-6 left-6 right-6">
                 <div class="text-white font-black leading-[0.95] text-4xl sm:text-5xl md:text-6xl tracking-tight">
