@@ -20,7 +20,7 @@ const Header = () => (
           <a class="hover:text-brand-warm" href="/give">Give</a>
           <div class="flex items-center gap-4 text-base">
             <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-            <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+            <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
           </div>
         </nav>
         <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">

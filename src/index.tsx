@@ -25,7 +25,7 @@ app.get('/', (c) => {
               <a class="hover:text-amber-600" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-amber-600" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-amber-600" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+                <a class="hover:text-amber-600" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
               </div>
             </nav>
             <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
@@ -177,7 +177,7 @@ app.get('/', (c) => {
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
               </div>
               <p class="mt-2 text-gray-500 text-xs">@TheRadiantRepublic</p>
             </div>
@@ -225,7 +225,7 @@ app.get('/about', (c) => {
               <a class="hover:text-brand-warm" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
               </div>
             </nav>
             <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
@@ -575,7 +575,7 @@ app.get('/gatherings', (c) => {
               <a class="hover:text-brand-warm" href="/give">Give</a>
               <div class="flex items-center gap-4 text-base">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
               </div>
             </nav>
             <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
@@ -1143,7 +1143,7 @@ app.get('/citizenship', (c) => {
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
               </div>
             </div>
           </div>
@@ -1163,7 +1163,7 @@ app.get('/citizenship', (c) => {
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="#"><i class="fab fa-youtube" /></a>
+                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
               </div>
             </div>
             <div>
