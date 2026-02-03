@@ -5,56 +5,127 @@ const app = new Hono()
 
 app.use(renderer)
 
+// Reusable Header Component (no social icons in header)
+const Header = ({ currentPage = '' }: { currentPage?: string }) => (
+  <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-24 items-center justify-between">
+        <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
+          <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logomark" class="h-20 md:h-24 w-auto"/>
+        </a>
+        <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a class={`hover:text-amber-600 ${currentPage === 'home' ? 'text-amber-600' : ''}`} href="/">Home</a>
+          <a class={`hover:text-amber-600 ${currentPage === 'about' ? 'text-amber-600' : ''}`} href="/about">About</a>
+          <a class={`hover:text-amber-600 ${currentPage === 'gatherings' ? 'text-amber-600' : ''}`} href="/gatherings">Gatherings</a>
+          <a class={`hover:text-amber-600 ${currentPage === 'ministries' ? 'text-amber-600' : ''}`} href="/ministries">Ministries</a>
+          <a class={`hover:text-amber-600 ${currentPage === 'events' ? 'text-amber-600' : ''}`} href="/events">Events</a>
+          <a class={`hover:text-amber-600 ${currentPage === 'give' ? 'text-amber-600' : ''}`} href="/give">Give</a>
+        </nav>
+        <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    {/* Mobile menu */}
+    <div id="mobileMenu" class="md:hidden bg-white/95 border-t border-black/10">
+      <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
+        <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
+        <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
+        <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
+        <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
+        <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
+        <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
+      </div>
+    </div>
+  </header>
+)
 
+// Reusable Footer Component with social icons and updated content
+const Footer = () => (
+  <footer class="bg-white border-t border-black/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid md:grid-cols-3 gap-8 text-gray-900">
+        <div>
+          <div class="flex items-center gap-2 font-bold tracking-wide">
+            <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logomark" class="h-20 md:h-24 w-auto"/>
+          </div>
+          <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
+          <p class="mt-3 text-gray-600 text-sm">We can't wait to walk this journey with you.</p>
+          <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
+            <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
+            <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
+            <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
+            <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
+          </div>
+          <p class="mt-2 text-gray-500 text-xs">@TheRadiantRepublic</p>
+        </div>
+        <div>
+          <h4 class="font-semibold">Contact</h4>
+          <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+            <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 6:00 PM WAT / 12:00 PM EST</li>
+            <li>
+              <a href="#" onclick="document.getElementById('emailModal').classList.remove('hidden'); return false;" class="hover:text-brand-warm cursor-pointer">
+                <i class="fa fa-envelope text-brand-warm mr-2"/>Hello@radiantrepublic.org
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold">Explore</h4>
+          <ul class="mt-3 space-y-2 text-gray-700 text-sm">
+            <li><a href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" class="hover:text-gray-900">Watch a Sermon</a></li>
+            <li><a href="/gatherings" class="hover:text-gray-900">Plan a Visit</a></li>
+            <li><a href="/citizenship" class="hover:text-gray-900">Become a Citizen</a></li>
+            <li><a href="/events" class="hover:text-gray-900">Join a Discipleship Class</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
+    </div>
+    {/* Email Modal */}
+    <div id="emailModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl p-6 md:p-8 max-w-lg w-full relative">
+        <button onclick="document.getElementById('emailModal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900">
+          <i class="fa fa-times text-xl"></i>
+        </button>
+        <h3 class="text-2xl font-extrabold text-gray-900">Send us a message</h3>
+        <form class="mt-4 space-y-4" action="mailto:Hello@radiantrepublic.org" method="post" enctype="text/plain">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+            <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-warm focus:border-transparent" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+            <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-warm focus:border-transparent" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+            <textarea name="message" rows={4} class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-warm focus:border-transparent" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+)
+
+// Homepage
 app.get('/', (c) => {
   return c.render(
     <>
-      {/* Header / Nav */}
-      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-24 items-center justify-between">
-            <a href="#" class="flex items-center gap-2 font-bold tracking-wide">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logomark" class="h-20 md:h-24 w-auto"/>
-            </a>
-            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
-              <a class="hover:text-amber-600" href="#home">Home</a>
-              <a class="hover:text-amber-600" href="/about">About</a>
-              <a class="hover:text-amber-600" href="/gatherings">Gatherings</a>
-              <a class="hover:text-amber-600" href="/ministries">Ministries</a>
-              <a class="hover:text-amber-600" href="/events">Events</a>
-              <a class="hover:text-amber-600" href="/give">Give</a>
-              <div class="flex items-center gap-4 text-base">
-                <a class="hover:text-amber-600" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-amber-600" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
-                <a class="hover:text-amber-600" aria-label="Facebook" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
-                <a class="hover:text-amber-600" aria-label="TikTok" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
-              </div>
-            </nav>
-            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
-              <i class="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        <div id="mobileMenu" class="md:hidden bg-white/95 border-t border-black/10">
-          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
-            <a class="block py-2 hover:text-brand-warm" href="#home">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
-            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="home" />
 
-      {/* Hero split layout (matches provided design) */}
+      {/* Hero Section with Image Carousel */}
       <section id="home" class="pt-28 md:pt-32 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
-            {/* Left: image with title overlay */}
+            {/* Left: Image Carousel with title overlay */}
             <div class="relative rounded-xl overflow-hidden min-h-[320px] md:min-h-[460px]">
-<img src="/static/heroImage.png" alt="Radiant worship" class="absolute inset-0 w-full h-full object-cover"/>
+              <div id="heroCarousel" class="absolute inset-0">
+                <img src="/static/heroImage.png" alt="Radiant worship" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000"/>
+                <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Community gathering" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
+                <img src="https://images.pexels.com/photos/14664088/pexels-photo-14664088.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Worship service" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
+              </div>
               <div class="absolute inset-0 bg-black/25"></div>
               <div class="absolute bottom-8 left-6 right-6 pb-2">
                 <div class="text-white font-black leading-[1] text-4xl sm:text-5xl md:text-6xl tracking-tight">
@@ -63,15 +134,26 @@ app.get('/', (c) => {
                   <div>REPUBLIC</div>
                 </div>
               </div>
+              {/* Carousel dots */}
+              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                <button class="carousel-dot w-2 h-2 rounded-full bg-white/80" data-index="0"></button>
+                <button class="carousel-dot w-2 h-2 rounded-full bg-white/40" data-index="1"></button>
+                <button class="carousel-dot w-2 h-2 rounded-full bg-white/40" data-index="2"></button>
+              </div>
             </div>
             {/* Right: headline and CTA */}
             <div class="bg-white rounded-xl p-8 md:p-10 flex flex-col justify-center border border-brand-dark/10">
-              <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.1]">Welcome. We're really glad you're here.</h1>
-              <p class="mt-4 text-gray-600 leading-relaxed">If you've been longing for more depth in your walk with God—more clarity, more maturity, more alignment—you're not alone. And you didn't arrive here by accident.</p>
+              <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-[1.1]">Raising a Glorious People, The Radiant Reflection of Christ</h1>
+              <p class="mt-3 text-gray-600 text-sm italic">An auxiliary ministry to the Body of Christ, forming believers into maturity, purity, and responsibility.</p>
+              <div class="mt-6 border-t border-gray-200 pt-6">
+                <p class="text-lg font-semibold text-gray-900">Welcome! We're really glad you're here.</p>
+                <p class="mt-2 text-gray-600 leading-relaxed">If you've been longing for more depth in your walk with God—more clarity, more maturity, more alignment—you're not alone. And you didn't arrive here by accident.</p>
+              </div>
               <div class="mt-6 flex flex-wrap gap-3">
                 <a href="/citizenship" class="btn btn-primary">Become a Citizen</a>
-                <a href="#messages" class="btn btn-outline">Watch</a>
+                <a href="/gatherings" class="btn btn-outline">Explore Gatherings</a>
               </div>
+              <p class="mt-4 text-xs text-gray-500 italic">"...that He might present to Himself the church in all her glory..." — Ephesians 5:27</p>
             </div>
           </div>
         </div>
@@ -81,78 +163,74 @@ app.get('/', (c) => {
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-            {/* Service Times composite card */}
+            {/* Service Times */}
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
               <h2 class="text-2xl font-extrabold text-gray-900">Service Times</h2>
               <div class="mt-6 grid grid-cols-2 gap-4 items-stretch">
                 <div class="rounded-lg bg-amber-500 text-white p-5 flex flex-col justify-between">
                   <div class="text-sm font-semibold opacity-90">Sundays</div>
-                  <div class="text-3xl md:text-4xl font-black">9:00<span class="text-lg align-top ml-1">AM</span></div>
+                  <div class="text-3xl md:text-4xl font-black">6:00<span class="text-lg align-top ml-1">PM</span></div>
+                  <div class="text-xs mt-1 opacity-80">WAT / 12:00 PM EST</div>
                 </div>
                 <div class="rounded-lg bg-white border border-black/10 p-5">
-                  <div class="text-gray-900 font-semibold">Sundays</div>
-                  <div class="mt-2 space-y-1 text-2xl font-bold text-gray-900">
-                    <div>9:00 <span class="text-sm align-top">AM</span></div>
-                    <div>11:00 <span class="text-sm align-top">AM</span></div>
+                  <div class="text-gray-900 font-semibold text-sm">Schedule</div>
+                  <div class="mt-2 space-y-2 text-sm text-gray-700">
+                    <div class="flex items-start gap-2">
+                      <span class="w-2 h-2 rounded-full bg-amber-500 mt-1.5"></span>
+                      <span><strong>1st Sunday:</strong> Physical Service</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="w-2 h-2 rounded-full bg-brand-cool mt-1.5"></span>
+                      <span><strong>2nd-4th Sundays:</strong> Virtual Services</span>
+                    </div>
                   </div>
+                  <a href="/gatherings" class="mt-3 inline-block text-sm text-amber-600 hover:text-amber-700 font-medium">View Schedule →</a>
                 </div>
               </div>
             </div>
 
-            {/* About intro */}
+            {/* Who We Are */}
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
               <h3 class="text-3xl font-extrabold text-gray-900">Who We Are</h3>
               <p class="mt-4 text-gray-700">At The Radiant Republic, we walk with you as you grow into the radiant reflection of Christ. Not rushed. Not pressured. But intentional, accountable, and rooted in truth.</p>
               <p class="mt-3 text-gray-700">This is not church as usual. This is a journey for believers who are hungry to be formed—in character, in purity, and in purpose.</p>
+              <p class="mt-3 text-gray-700">We want to meet you. We want to grow with you. And we want to help you become all God is shaping in this season.</p>
             </div>
 
-            {/* Latest Sermon video */}
+            {/* Worship & Community */}
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Latest Sermon</h3>
-              <div class="mt-4 rounded-lg overflow-hidden bg-black/5 aspect-video">
-                <div class="relative w-full h-full">
-                  <img class="absolute inset-0 w-full h-full object-cover" src="https://img.youtube.com/vi/qoQ7QvlWfmg/maxresdefault.jpg" alt="Latest Sermon thumbnail"/>
-                  <a href="https://www.youtube.com/watch?v=qoQ7QvlWfmg&list=RDqoQ7QvlWfmg&start_radio=1" target="_blank" rel="noopener" class="absolute inset-0 grid place-items-center bg-black/25 hover:bg-black/35">
-                    <span class="inline-flex items-center gap-3 text-white font-semibold bg-black/40 backdrop-blur px-4 py-2 rounded-full">
-                      <i class="fa fa-play"></i>
-                      Watch on YouTube
-                    </span>
-                  </a>
-                </div>
-              </div>
-              <div class="mt-3">
-                <div class="font-semibold">He Is Risen</div>
-                <div class="text-sm text-gray-600">John 20:1–18</div>
-                <p class="text-gray-700 mt-2">Experience the care of God in a message full of hope.</p>
-              </div>
+              <h3 class="text-2xl font-extrabold text-gray-900">Worship & Community</h3>
+              <p class="mt-4 text-gray-700">Our worship creates room for reverence, sensitivity, and response. Beyond music, we gather.</p>
+              <p class="mt-3 text-gray-700">We believe community should feel safe again. Through honest relationships, in homes, industries, and spaces of influence. We grow together, share life, and carry God's agenda.</p>
             </div>
 
-            {/* Events column with orange + white cards and photos */}
+            {/* Gatherings & Events */}
             <div class="grid gap-6">
               <div class="rounded-xl p-6 bg-brand-warm text-gray-900 border border-brand-dark/10">
-                <h3 class="text-2xl font-extrabold">Community Picnic</h3>
-                <div class="text-gray-800/90 font-semibold mt-1">April 23, 2024</div>
-                <p class="text-gray-900 mt-2">Join us for a gather—great eats and time together at the park.</p>
+                <h3 class="text-2xl font-extrabold">Gatherings & Events</h3>
+                <p class="mt-2">We are illuminated from within whenever we gather as Radiant citizens of the Republic. Each gathering is an intentional space for growth, clarity, accountability, and shared purpose.</p>
+                <div class="mt-4">
+                  <a href="/gatherings" class="text-gray-900 font-semibold hover:underline">→ Explore Our Gatherings</a>
+                </div>
               </div>
               <div class="rounded-xl p-6 bg-white border border-black/10">
-                <h3 class="text-2xl font-extrabold text-gray-900">Worship Night</h3>
-                <div class="text-gray-600 mt-1">May 5, 2024</div>
-                <p class="text-gray-700 mt-2">An evening of worship and stories. Family-friendly with space for prayer.</p>
-              </div>
-              <div class="grid grid-cols-2 gap-4">
-                <img class="rounded-lg object-cover h-36 w-full" src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Community"/>
-                <img class="rounded-lg object-cover h-36 w-full" src="https://images.pexels.com/photos/14664088/pexels-photo-14664088.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Gathering"/>
+                <p class="text-gray-700">We glow beyond ourselves through events where we host the wider Body of Christ to moments of prayer, teaching, and activation for all who are hungry for more.</p>
+                <div class="mt-4">
+                  <a href="/events" class="text-amber-600 font-semibold hover:underline">→ View Upcoming Events</a>
+                </div>
               </div>
             </div>
 
             {/* We Want to Meet You */}
             <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
               <h3 class="text-2xl font-extrabold text-gray-900">We Want to Meet You</h3>
-              <p class="mt-2 text-gray-700">We want to grow with you. And we want to help you become all God is shaping in this season.</p>
+              <p class="mt-2 text-gray-700">Whether you're stepping into the tangible power of our physical gatherings or connecting to the timeless presence of God through our virtual services, you belong here.</p>
+              <p class="mt-3 text-gray-700">We don't do big meetings, but intimacy. We want to meet you.</p>
               <div class="mt-4">
                 <a href="/gatherings" class="btn btn-outline">Plan a Visit</a>
               </div>
             </div>
+
             {/* Become a Citizen */}
             <div class="rounded-xl p-6 md:p-8 bg-brand-warm text-gray-900 border border-black/10">
               <h3 class="text-2xl font-extrabold">Become a Citizen</h3>
@@ -165,44 +243,40 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Footer / Contact */}
-      <footer class="bg-white border-t border-black/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
-            <div>
-              <div class="flex items-center gap-2 font-bold tracking-wide">
-                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logomark" class="h-20 md:h-24 w-auto"/>
-              </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
-              <p class="mt-3 text-gray-600 text-sm">We can't wait to walk this journey with you.</p>
-              <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
-                <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
-              </div>
-              <p class="mt-2 text-gray-500 text-xs">@TheRadiantRepublic</p>
-            </div>
-            <div>
-              <h4 class="font-semibold">Contact</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
-                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-semibold">Next Steps</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="/gatherings" class="hover:text-gray-900">Plan a Visit</a></li>
-                <li><a href="/about" class="hover:text-gray-900">About Us</a></li>
-                <li><a href="/ministries" class="hover:text-gray-900">Ministries</a></li>
-                <li><a href="/citizenship" class="hover:text-gray-900">Become a Citizen</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
+
+      {/* Carousel Script */}
+      <script dangerouslySetInnerHTML={{ __html: `
+        (function() {
+          let currentSlide = 0;
+          const slides = document.querySelectorAll('.carousel-slide');
+          const dots = document.querySelectorAll('.carousel-dot');
+          
+          function showSlide(index) {
+            slides.forEach((slide, i) => {
+              slide.style.opacity = i === index ? '1' : '0';
+            });
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('bg-white/80', i === index);
+              dot.classList.toggle('bg-white/40', i !== index);
+            });
+          }
+          
+          function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+          }
+          
+          dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+              currentSlide = i;
+              showSlide(currentSlide);
+            });
+          });
+          
+          setInterval(nextSlide, 5000);
+        })();
+      `}} />
     </>
   )
 })
@@ -211,174 +285,86 @@ app.get('/', (c) => {
 app.get('/about', (c) => {
   return c.render(
     <>
-      {/* Header / Nav (same style, white background) */}
-      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-24 items-center justify-between">
-            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-            </a>
-            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
-              <a class="hover:text-brand-warm" href="/">Home</a>
-              <a class="hover:text-brand-warm" href="/about">About</a>
-              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/give">Give</a>
-              <div class="flex items-center gap-4 text-base">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
-              </div>
-            </nav>
-            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
-              <i class="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
-          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
-            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
-            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="about" />
 
       {/* Hero split */}
       <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           <div class="relative rounded-xl overflow-hidden min-h-[340px] md:min-h-[520px]">
-            <img src="https://page.gensparksite.com/v1/base64_upload/9d203efd148787105356059dce4824ef" alt="Worship" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="/static/heroImage.png" alt="Worship" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black/25"></div>
             <div class="absolute bottom-6 left-6 right-6">
               <div class="text-white font-black leading-[0.95] text-4xl sm:text-5xl md:text-6xl tracking-tight">
-                <div>THE</div>
-                <div>RADIANT</div>
-                <div>REPUBLIC</div>
+                <div>ABOUT</div>
+                <div>US</div>
               </div>
             </div>
           </div>
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
-            <h1 class="text-5xl font-extrabold text-gray-900">About Us</h1>
-            <p class="mt-2 text-gray-600 text-lg">We're building people—and we're building with you in mind.</p>
-            <div class="mt-8 space-y-6">
-              <div class="flex gap-4">
-                <div class="w-1 bg-brand-warm rounded"></div>
-                <div>
-                  <h3 class="text-2xl font-extrabold text-gray-900">Our Purpose</h3>
-                  <p class="text-gray-700 mt-1">The Radiant Republic exists because we believe God is preparing a glorious Church—a people being formed into the radiant reflection of Christ (Ephesians 5:27).</p>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <div class="w-1 bg-brand-dark rounded"></div>
-                <div>
-                  <h3 class="text-2xl font-extrabold text-gray-900">Our Journey</h3>
-                  <p class="text-gray-700 mt-1">This journey is about maturity. About purity that makes power available. About believers who take responsibility for their walk with God and their place in the body.</p>
-                </div>
-              </div>
-            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">We're building a people—and we're building with you in mind.</h1>
+            <p class="mt-4 text-gray-700">The Radiant Republic exists because we believe God is preparing a glorious Church—a people being formed into the radiant reflection of Christ (Ephesians 5:27).</p>
+            <p class="mt-3 text-gray-700">This journey is about maturity. About purity that makes power available. About believers who take responsibility for their walk with God and their place in the body.</p>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Our Purpose */}
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Our Values</h2>
-          <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-            <div class="text-center">
-              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-hands-praying"></i></div>
-              <div class="mt-2 font-medium">Worship</div>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <h2 class="text-3xl font-extrabold text-gray-900">Our Purpose</h2>
+              <p class="mt-4 text-gray-700">We don't replace your local church. We walk with you, sharpen you, and help you return to your world clearer, stronger, and more aligned with Christ.</p>
+              <p class="mt-3 text-gray-700">If you're tired of surface-level faith and ready for intentional growth, we would love to walk this journey with you.</p>
             </div>
-            <div class="text-center">
-              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-hands"></i></div>
-              <div class="mt-2 font-medium">Prayer</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-users"></i></div>
-              <div class="mt-2 font-medium">Community</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-gift"></i></div>
-              <div class="mt-2 font-medium">Generosity</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl text-brand-dark"><i class="fa-solid fa-handshake"></i></div>
-              <div class="mt-2 font-medium">Integrity</div>
+            <div class="bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900">
+              <h2 class="text-3xl font-extrabold">Our Values</h2>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-white/80 rounded-full text-sm font-medium">Integrity</span>
+                <span class="px-4 py-2 bg-white/80 rounded-full text-sm font-medium">Purity</span>
+                <span class="px-4 py-2 bg-white/80 rounded-full text-sm font-medium">Accountability</span>
+                <span class="px-4 py-2 bg-white/80 rounded-full text-sm font-medium">Discipleship</span>
+                <span class="px-4 py-2 bg-white/80 rounded-full text-sm font-medium">Community</span>
+                <span class="px-4 py-2 bg-white/80 rounded-full text-sm font-medium">Spiritual Maturity</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Leadership */}
+      {/* Faculty */}
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8">Faculty</h2>
           <div class="grid md:grid-cols-2 gap-8 items-start">
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <div class="grid grid-cols-2 gap-4">
-                <img class="rounded-lg object-cover aspect-[4/5] w-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" alt="Leader"/>
-                <img class="rounded-lg object-cover aspect-[4/5] w-full" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1000&auto=format&fit=crop" alt="Leader"/>
-              </div>
-              <div class="mt-4">
-                <h3 class="text-2xl font-extrabold text-gray-900">Pastor</h3>
-                <div class="text-gray-600">Lead Pastor</div>
-                <p class="text-gray-700 mt-2">Short bio or welcome message here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+              <div class="flex gap-6 items-start">
+                <img class="w-32 h-40 rounded-lg object-cover" src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pastor Wilson Diamond"/>
+                <div>
+                  <h3 class="text-2xl font-extrabold text-gray-900">Pastor Wilson Diamond</h3>
+                  <div class="text-amber-600 font-medium">Lead Steward</div>
+                  <p class="text-gray-700 mt-3 text-sm">Pastor Wilson Diamond carries a clear mandate to raise a glorious people—mature, radiant, and valuable to society. His leadership is marked by integrity, depth in the Word, and a passion for believers to walk in purity, power, and purpose as living reflections of Christ.</p>
+                </div>
               </div>
             </div>
             <div class="grid gap-6">
               <div class="rounded-xl p-6 bg-white border border-brand-dark/10">
-                <h3 class="text-3xl font-extrabold text-gray-900">Leadership Team</h3>
-                <p class="text-gray-700 mt-2">We lead together with humility and clarity across ministries, groups, and next generation.</p>
-              </div>
-              <div class="rounded-xl overflow-hidden">
-                <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Community"/>
+                <h3 class="text-2xl font-extrabold text-gray-900">Walk With Us</h3>
+                <p class="text-gray-700 mt-2">We don't replace your local church. We walk with you, sharpen you, and help you return to your world clearer, stronger, and more aligned with Christ.</p>
+                <p class="mt-2 text-gray-700">If you're tired of surface-level faith and ready for intentional growth, we would love to walk this journey with you.</p>
+                <div class="mt-4"><a href="/events" class="btn btn-outline">Join a Class</a></div>
               </div>
               <div class="rounded-xl p-6 bg-brand-warm text-gray-900 border border-brand-dark/10">
-                <h3 class="text-3xl font-extrabold">Walk With Us</h3>
-                <p class="mt-2">We don't replace your local church. We walk with you, sharpen you, and help you return to your world clearer, stronger, and more aligned with Christ.</p>
-                <p class="mt-2">If you're tired of surface-level faith and ready for intentional growth, we would love to walk this journey with you.</p>
-                <div class="mt-4"><a href="/citizenship" class="btn btn-outline">Become a Citizen</a></div>
+                <h3 class="text-2xl font-extrabold">Become a Citizen</h3>
+                <p class="mt-2">Ready to walk deliberately with others who are serious about becoming a glorious people unto God?</p>
+                <div class="mt-4"><a href="/citizenship" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-white border-t border-black/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
-            <div>
-              <div class="flex items-center gap-2 font-bold tracking-wide">
-                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-              </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
-            </div>
-            <div>
-              <h4 class="font-semibold">Contact</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
-                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
-                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-semibold">Next Steps</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="/#about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
-                <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 })
@@ -387,42 +373,13 @@ app.get('/about', (c) => {
 app.get('/ministries', (c) => {
   return c.render(
     <>
-      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-24 items-center justify-between">
-            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-            </a>
-            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
-              <a class="hover:text-brand-warm" href="/">Home</a>
-              <a class="hover:text-brand-warm" href="/about">About</a>
-              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/give">Give</a>
-            </nav>
-            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
-              <i class="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
-          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
-            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
-            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="ministries" />
 
-      {/* Top split: title/image left, Serve header right */}
+      {/* Hero */}
       <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           <div class="relative rounded-xl overflow-hidden min-h-[300px] md:min-h-[420px]">
-            <img src="https://page.gensparksite.com/v1/base64_upload/1582d07c38eee188b34fbde81de6110d" alt="Ministries hero" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ministries hero" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black/20"></div>
             <div class="absolute bottom-6 left-6 right-6 text-white">
               <div class="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95]">MINISTRIES</div>
@@ -430,11 +387,10 @@ app.get('/ministries', (c) => {
             </div>
           </div>
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Ministries</h1>
-            <p class="mt-3 text-gray-700 text-lg">There is a place for you here.</p>
-            <p class="mt-3 text-gray-600">We believe every believer carries grace, gifting, and responsibility within the body of Christ.</p>
-            <p class="mt-3 text-gray-600">If you carry a burden for prayer, discipleship, service, or building others—we want to walk with you.</p>
-            <p class="mt-3 text-gray-600">This is not about filling roles. It's about stewarding grace and expressing purpose.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">There is a place for you here.</h1>
+            <p class="mt-4 text-gray-700">We believe every believer carries grace, gifting, and responsibility within the body of Christ.</p>
+            <p class="mt-3 text-gray-600">If you carry a burden for prayer, discipleship, service, or building others—then come serve Jesus with us!</p>
+            <p class="mt-3 text-gray-600">At the Republic, it goes beyond filling roles. It's about sharing bonds, stewarding grace and expressing purpose.</p>
             <div class="mt-6 flex flex-wrap gap-3">
               <a href="#list" class="btn btn-primary">Explore Ministries</a>
               <a href="#join" class="btn btn-outline">Join a Team</a>
@@ -443,116 +399,80 @@ app.get('/ministries', (c) => {
         </div>
       </section>
 
-      {/* Grid content */}
+      {/* Ministries Grid */}
       <section id="list" class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-            {/* Left column heading and Sundays times card */}
+            {/* Prayer Ministry */}
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h2 class="text-3xl font-extrabold text-gray-900">Ministries</h2>
-              <div class="mt-6 grid grid-cols-2 gap-4 items-stretch">
-                <div class="rounded-lg bg-amber-500 text-gray-900 p-5">
-                  <div class="font-semibold">WORSHIP TEAM</div>
-                  <p class="mt-2 text-sm">Enjoy an invite to serve across music and creative arts.</p>
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center">
+                  <i class="fa-solid fa-hands-praying text-white text-xl"></i>
                 </div>
-                <div class="rounded-lg bg-white border border-black/10 p-5">
-                  <div class="text-gray-900 font-semibold">Sundays</div>
-                  <div class="mt-2 space-y-1 text-2xl font-bold text-gray-900">
-                    <div>9:00 <span class="text-sm align-top">AM</span></div>
-                    <div>11:00 <span class="text-sm align-top">AM</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Youth Ministry card with photo */}
-            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10 grid grid-cols-3 gap-4 items-center">
-              <img class="col-span-1 rounded-lg object-cover aspect-square w-full" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop" alt="Youth"/>
-              <div class="col-span-2">
-                <h3 class="text-2xl font-extrabold text-gray-900">Youth Ministry</h3>
-                <p class="text-gray-700 mt-2">Join students as they grow in faith and community.</p>
-              </div>
-            </div>
-
-            {/* Children's and Small Groups */}
-            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h3 class="text-3xl font-extrabold text-gray-900">Children’s Ministry</h3>
-              <div class="mt-4 rounded-lg overflow-hidden relative">
-                <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1589831377283-33cb1cc6bd5c?q=80&w=1200&auto=format&fit=crop" alt="Children"/>
-              </div>
-              <div class="mt-6">
-                <div class="font-semibold">Small Groups</div>
-                <div class="text-sm text-gray-600">John 20:1-18</div>
-                <p class="text-gray-700 mt-1">Experience an all-age environment cared by incredible teams.</p>
-              </div>
-            </div>
-
-            {/* Women's and Men's and Prayer */}
-            <div class="grid gap-6">
-              <div class="rounded-xl p-6 bg-brand-warm text-gray-900 border border-brand-dark/10">
-                <h3 class="text-2xl font-extrabold">Women’s Ministry</h3>
-                <div class="text-gray-800/90 font-semibold mt-1">April 23, 2024</div>
-                <p class="mt-2">Gatherings and Bible studies to encourage and equip.</p>
-              </div>
-              <div class="rounded-xl p-6 bg-white border border-black/10">
-                <h3 class="text-2xl font-extrabold text-gray-900">MEN Ministry</h3>
-                <div class="text-gray-600 mt-1">May 5, 2024</div>
-                <p class="text-gray-700 mt-2">Join our weekly gathering for study, prayer, and community.</p>
-              </div>
-              <div class="rounded-xl overflow-hidden">
-                <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Prayer"/>
-              </div>
-              <div class="rounded-xl p-6 bg-white border border-black/10">
                 <h3 class="text-2xl font-extrabold text-gray-900">Prayer Ministry</h3>
-                <p class="text-gray-700 mt-2">Our prayer team would love to pray for you.</p>
               </div>
+              <p class="text-gray-700">Raising believers who understand the power of intercession, alignment, and spiritual responsibility.</p>
             </div>
 
-            {/* Bottom CTA row */}
-            <div class="rounded-xl p-6 md:p-8 bg-white border border-black/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Stewarding Grace</h3>
-              <p class="mt-2 text-gray-700">This is not about filling roles. It's about stewarding grace and expressing purpose within the body of Christ.</p>
+            {/* Teaching & Discipleship */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-brand-cool flex items-center justify-center">
+                  <i class="fa-solid fa-book-open text-white text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-gray-900">Teaching & Discipleship</h3>
+              </div>
+              <p class="text-gray-700">Grounding believers in truth, purity, and sound doctrine that produces transformation.</p>
+              <p class="mt-2 text-gray-600 text-sm">We help believers build spiritual capacity through intentional teaching and discipleship. We are out to strengthen their foundations, awakening hunger for more of God, and equipping them to steward and fully enjoy their new life in Christ.</p>
             </div>
-            <div id="join" class="rounded-xl p-6 md:p-8 bg-brand-warm text-gray-900 border border-black/10">
+
+            {/* Community & Accountability */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center">
+                  <i class="fa-solid fa-users text-white text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-gray-900">Community & Accountability</h3>
+              </div>
+              <p class="text-gray-700">Creating safe and structured environments for confession, growth, and mutual sharpening.</p>
+            </div>
+
+            {/* Sound, Space & Structure */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center">
+                  <i class="fa-solid fa-sliders text-white text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-gray-900">Sound, Space & Structure</h3>
+              </div>
+              <p class="text-gray-700">Stewarding the atmosphere so ministry moves without distraction. Here, we care about excellence behind the scenes—sound, visuals, facility setup, and flow.</p>
+            </div>
+
+            {/* Rays of Radiance */}
+            <div class="bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900 border border-brand-dark/10">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center">
+                  <i class="fa-solid fa-sun text-white text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold">Rays of Radiance</h3>
+              </div>
+              <p>Taking the message beyond gatherings by reflecting the radiance of Jesus into communities, conversations, and everyday life. Here, our hearts beat for souls and culture-shaping impact.</p>
+            </div>
+
+            {/* Join a Team CTA */}
+            <div id="join" class="bg-gray-900 rounded-xl p-6 md:p-8 text-white">
               <h3 class="text-2xl font-extrabold">Join a Team</h3>
-              <p class="mt-2">If you carry a burden for prayer, discipleship, service, or building others—we want to walk with you.</p>
-              <div class="mt-4"><a href="#" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Join a Team</a></div>
+              <p class="mt-3 text-gray-300">If you carry a burden for prayer, discipleship, service, or building others—we want to walk with you.</p>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href="#" class="btn btn-primary bg-brand-warm text-gray-900 hover:bg-amber-500">Explore Ministries</a>
+                <a href="#" class="btn btn-outline border-white text-white hover:bg-white/10">Join a Team</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-white border-t border-black/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
-            <div>
-              <div class="flex items-center gap-2 font-bold tracking-wide">
-                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-              </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
-            </div>
-            <div>
-              <h4 class="font-semibold">Contact</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
-                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
-                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-semibold">Next Steps</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="/about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
-                <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 })
@@ -561,286 +481,165 @@ app.get('/ministries', (c) => {
 app.get('/gatherings', (c) => {
   return c.render(
     <>
-      {/* Header / Nav (same style, white background) */}
-      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-24 items-center justify-between">
-            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-            </a>
-            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
-              <a class="hover:text-brand-warm" href="/">Home</a>
-              <a class="hover:text-brand-warm" href="/about">About</a>
-              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/give">Give</a>
-              <div class="flex items-center gap-4 text-base">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
-              </div>
-            </nav>
-            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
-              <i class="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
-          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
-            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
-            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="gatherings" />
 
-      {/* Hero / Header block */}
+      {/* Hero */}
       <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
-          {/* Left column: Title + subtitle matching reference */}
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">Radiant Gatherings</h1>
-            <p class="mt-4 text-gray-700 text-lg leading-relaxed">When we gather, we gather with intention.</p>
-            <p class="mt-3 text-gray-600">Radiant Gatherings are spaces where prayer is reverent, teaching is clear, and formation is prioritized over performance.</p>
-            <p class="mt-3 text-gray-600">You're not a spectator here. You're part of a people learning to hear God clearly and respond faithfully.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Radiant Gatherings</h1>
+            <p class="mt-4 text-gray-700 text-lg leading-relaxed">Our gatherings are moments of alignment, teaching, prayer, and spiritual formation. They are designed to help believers hear God clearly, grow in maturity, and walk in obedience.</p>
             <div class="mt-6">
-              <a href="#plan" class="btn btn-primary">Plan to Attend</a>
+              <h3 class="font-semibold text-gray-900">What to Expect:</h3>
+              <ul class="mt-2 space-y-1 text-gray-700">
+                <li>• Christ-centered teaching</li>
+                <li>• Prayer and spiritual alignment</li>
+                <li>• A culture of accountability and growth</li>
+                <li>• An atmosphere of reverence and hunger</li>
+              </ul>
+            </div>
+            <p class="mt-4 text-gray-600">Whether you're joining physically or virtually, we want to meet you.</p>
+            <div class="mt-6">
+              <a href="#plan" class="btn btn-primary">Plan to Attend a Radiant Gathering</a>
             </div>
           </div>
-          {/* Right column: image */}
           <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
-            <img src="https://page.gensparksite.com/v1/base64_upload/51c17b6c118825a0d601018a16415304" alt="Gatherings" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gatherings" class="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </section>
 
-      {/* Schedule blocks */}
+      {/* Services */}
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <div class="grid md:grid-cols-2 gap-8 items-start">
-            {/* Sunday Services cards */}
-            <div>
-              <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">Sunday Services</h2>
-              <div class="mt-4 space-y-3">
-                <div class="rounded-lg border border-black/10 overflow-hidden">
-                  <div class="bg-amber-500 text-gray-900 font-black text-3xl md:text-4xl px-6 py-4">9:00 AM</div>
+            {/* Physical Service */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center">
+                  <i class="fa-solid fa-church text-white"></i>
                 </div>
-                <div class="rounded-lg border border-black/10 overflow-hidden">
-                  <div class="bg-amber-500 text-gray-900 font-black text-3xl md:text-4xl px-6 py-4">11:00 AM</div>
-                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">Physical Service</h2>
+              </div>
+              <div class="rounded-lg bg-amber-500 text-gray-900 font-black text-2xl md:text-3xl px-6 py-4 mb-4">
+                1st Sunday • 6:00 PM WAT
+              </div>
+              <p class="text-gray-700">There's a grace that flows in the room. Through shared worship, clear teaching, and real community. We gather physically to encounter God together, sharpen one another, and grow in depth and accountability.</p>
+              <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                <p class="text-sm text-gray-600"><strong>Venue:</strong> To be announced for next service</p>
+                <p class="text-sm text-gray-600 mt-1">Check back for the flier of our next physical gathering.</p>
               </div>
             </div>
 
-            {/* Wednesday Night */}
-            <div>
-              <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">Wednesday Night</h2>
-              <div class="text-gray-600 mt-1">Prayer & Study</div>
-              <div class="mt-4 grid grid-cols-2 gap-4">
-                <img class="rounded-lg object-cover aspect-[4/3] w-full" src="https://images.unsplash.com/photo-1529336953121-adb1189eff04?q=80&w=1000&auto=format&fit=crop" alt="Small Groups"/>
-                <div>
-                  <h3 class="text-2xl font-extrabold text-gray-900">Small Groups</h3>
-                  <p class="text-gray-700 mt-2">Weekly groups meeting across the city for prayer, study, and community.</p>
+            {/* Virtual Service */}
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-brand-cool flex items-center justify-center">
+                  <i class="fa-solid fa-video text-white"></i>
                 </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">Virtual Services</h2>
+              </div>
+              <div class="rounded-lg bg-brand-cool text-white font-black text-2xl md:text-3xl px-6 py-4 mb-4">
+                2nd-4th Sundays • 6:00 PM WAT
+              </div>
+              <p class="text-gray-700">Wherever you are, you can stay connected. Virtual services allow you to remain aligned, taught, and spiritually fed—bridging distance while keeping you rooted in what God is doing in the Republic.</p>
+              <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                <p class="text-sm text-gray-600"><strong>YouTube:</strong> <a href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" class="text-amber-600 hover:underline">@TheRadiant_Republic</a></p>
               </div>
             </div>
           </div>
 
-          {/* Lower grid: images, events list, what to expect */}
-          <div class="mt-10 grid md:grid-cols-3 gap-6">
-            <div class="space-y-6">
-              <img class="rounded-lg object-cover aspect-[4/3] w-full" src="https://images.unsplash.com/photo-1514516345957-556ca7c9a7b4?q=80&w=1000&auto=format&fit=crop" alt="Small Groups"/>
-              <img class="rounded-lg object-cover aspect-[4/3] w-full" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Community"/>
-            </div>
-            <div class="bg-brand-warm rounded-xl p-6 text-gray-900 border border-brand-dark/10">
-              <h3 class="text-2xl font-extrabold">Community Events</h3>
-              <ul class="mt-4 space-y-2 text-gray-900">
-                <li>April 28, 2024</li>
-                <li>May 8, 2024</li>
-                <li>June 11, 2024</li>
-                <li>June 24, 2024</li>
-              </ul>
-            </div>
-            <div id="plan" class="bg-white rounded-xl p-6 border border-brand-dark/10">
+          {/* Community Section */}
+          <div class="mt-10 bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900">
+            <h3 class="text-2xl font-extrabold">A Radiant Hub is Coming to You!</h3>
+            <p class="mt-3">We're expanding our community presence. Stay tuned for updates on local hubs and cell gatherings in your area.</p>
+          </div>
+
+          {/* Plan to Visit */}
+          <div id="plan" class="mt-10 grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-xl p-6 border border-brand-dark/10">
               <h3 class="text-2xl font-extrabold text-gray-900">We Want to Meet You</h3>
-              <p class="mt-2 text-gray-700">Whether you're joining physically or virtually, we want to meet you. Meet our team in the lobby. Enjoy coffee & donuts. We can't wait to meet you.</p>
-              <div class="mt-4"><a href="/about" class="btn btn-outline">Plan Your Visit</a></div>
+              <p class="mt-2 text-gray-700">Whether you're joining physically or virtually, we want to meet you. We don't do big meetings, but intimacy.</p>
+              <div class="mt-4"><a href="/citizenship" class="btn btn-outline">Become a Citizen</a></div>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+              <img class="w-full h-56 object-cover" src="https://images.pexels.com/photos/14664088/pexels-photo-14664088.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Community"/>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-white border-t border-black/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
-            <div>
-              <div class="flex items-center gap-2 font-bold tracking-wide">
-                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-              </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
-            </div>
-            <div>
-              <h4 class="font-semibold">Contact</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
-                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
-                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-semibold">Next Steps</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="/about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
-                <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 })
-
-// Gatherings page
 
 // Give page
 app.get('/give', (c) => {
   return c.render(
     <>
-      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-24 items-center justify-between">
-            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-            </a>
-            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
-              <a class="hover:text-brand-warm" href="/">Home</a>
-              <a class="hover:text-brand-warm" href="/about">About</a>
-              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/give">Give</a>
-            </nav>
-            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
-              <i class="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
-          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
-            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
-            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="give" />
 
-      {/* Hero and summary based on design */}
+      {/* Hero */}
       <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
             <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
               <div class="text-5xl md:text-7xl font-black tracking-tight text-gray-900">GIVE</div>
-              <h1 class="mt-4 text-3xl md:text-4xl font-extrabold text-gray-900">Support Our Mission</h1>
-              <p class="mt-2 text-gray-600">Easily and securely donate using our online platform.</p>
+              <h1 class="mt-4 text-3xl md:text-4xl font-extrabold text-gray-900">Led to Give?</h1>
+              <p class="mt-2 text-gray-600">If there is a prompting in your heart to sow into the work at the Republic, kindly use the details below.</p>
             </div>
             <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a0f6fc1ab938d9f12057b5f3854137f4" alt="Give design" class="absolute inset-0 w-full h-full object-cover" />
+              <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Give" class="absolute inset-0 w-full h-full object-cover" />
               <div class="absolute inset-0 bg-black/10"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Options */}
+      {/* Ways to Give */}
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
-          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">Online Giving</h2>
-              <p class="mt-2 text-gray-700">Easily and securely donate using our online platform.</p>
-              <div class="mt-4"><a href="#" class="btn btn-primary">Donate Now</a></div>
-            </div>
-            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">One-Time Gift</h2>
-              <p class="mt-2 text-gray-700">Make a single, impactful donation today.</p>
-              <div class="mt-4"><a href="#" class="btn btn-outline">Give Once</a></div>
-            </div>
-          </div>
-
-          <div class="mt-10 grid md:grid-cols-2 gap-6 md:gap-8 items-start">
-            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h3 class="text-3xl font-extrabold text-gray-900">Ways to Give</h3>
-              <ul class="mt-4 space-y-3 text-gray-700">
-                <li>Online — use our secure platform above</li>
-                <li>Text-to-Give — Text: [keyword] to (number)</li>
-                <li>By Mail — Send checks to our church office</li>
-              </ul>
-            </div>
-            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h3 class="text-3xl font-extrabold text-gray-900">Secure Giving</h3>
-              <div class="mt-4 grid grid-cols-3 gap-4 text-sm text-gray-700">
-                <div class="flex flex-col items-center"><i class="fa fa-shield-halved text-2xl text-brand-dark"></i><div class="mt-1">Secure</div></div>
-                <div class="flex flex-col items-center"><i class="fa fa-lock text-2xl text-brand-dark"></i><div class="mt-1">Protected</div></div>
-                <div class="flex flex-col items-center"><i class="fa fa-certificate text-2xl text-brand-dark"></i><div class="mt-1">Certified</div></div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
+              <div class="w-16 h-16 mx-auto rounded-full bg-amber-500 flex items-center justify-center mb-4">
+                <i class="fa-solid fa-credit-card text-white text-2xl"></i>
               </div>
+              <h3 class="text-xl font-extrabold text-gray-900">Online Transfer</h3>
+              <p class="mt-2 text-gray-600 text-sm">Bank transfer to our account</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
+              <div class="w-16 h-16 mx-auto rounded-full bg-brand-cool flex items-center justify-center mb-4">
+                <i class="fa-solid fa-mobile-screen text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-gray-900">Mobile Payment</h3>
+              <p class="mt-2 text-gray-600 text-sm">Quick and easy mobile giving</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
+              <div class="w-16 h-16 mx-auto rounded-full bg-green-600 flex items-center justify-center mb-4">
+                <i class="fa-solid fa-hand-holding-dollar text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-gray-900">Cash</h3>
+              <p class="mt-2 text-gray-600 text-sm">At physical gatherings</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
+              <div class="w-16 h-16 mx-auto rounded-full bg-purple-600 flex items-center justify-center mb-4">
+                <i class="fa-solid fa-repeat text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-gray-900">Recurring</h3>
+              <p class="mt-2 text-gray-600 text-sm">Set up recurring giving</p>
             </div>
           </div>
 
-          <div class="mt-10 grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
-            <div class="md:col-span-2 bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900 border border-brand-dark/10">
-              <h3 class="text-2xl font-extrabold">Thank You</h3>
-              <p class="mt-2">Your support has changed lives and helped our community in many meaningful ways. We’re grateful.</p>
-            </div>
-            <div class="rounded-xl overflow-hidden">
-              <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1514516345957-556ca7c9a7b4?q=80&w=1200&auto=format&fit=crop" alt="Family"/>
-            </div>
+          {/* Thank You Note */}
+          <div class="mt-10 bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900">
+            <h3 class="text-2xl font-extrabold">Thank You</h3>
+            <p class="mt-2">Thank you for yielding to God. He treasures a heart that responds to His leading.</p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-white border-t border-black/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
-            <div>
-              <div class="flex items-center gap-2 font-bold tracking-wide">
-                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-              </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
-            </div>
-            <div>
-              <h4 class="font-semibold">Contact</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
-                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
-                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-semibold">Next Steps</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="/about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
-                <li><a href="/gatherings#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 })
@@ -849,164 +648,82 @@ app.get('/give', (c) => {
 app.get('/events', (c) => {
   return c.render(
     <>
-      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-24 items-center justify-between">
-            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-            </a>
-            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
-              <a class="hover:text-brand-warm" href="/">Home</a>
-              <a class="hover:text-brand-warm" href="/about">About</a>
-              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/give">Give</a>
-            </nav>
-            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
-              <i class="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
-          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
-            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
-            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="events" />
 
-      {/* Intro split with supplied design image */}
+      {/* Hero */}
       <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Events</h1>
-            <p class="mt-2 text-gray-600">Gather with us for community, worship, and growth throughout the year.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Events</h1>
+            <p class="mt-2 text-xl text-gray-700">If you are a believer, there's a seat for you here.</p>
+            <p class="mt-4 text-gray-600">At these events, we glow beyond the citizenship at the Republic, boundaries of your church, or the difference in our denominations. The divisions are blurred into the unity of one body.</p>
+            <p class="mt-3 text-gray-600">Whether you are a citizen or not, we come together in one accord, aligning our hearts, praying, and taking our place in what the Head of the Body is doing in this season.</p>
           </div>
           <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
-            <img src="https://page.gensparksite.com/v1/base64_upload/c45cfcddae15d7311f4413bf2e07ae46" alt="Events design" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Events" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black/10"></div>
           </div>
         </div>
       </section>
 
-      {/* Events content based on supplied design */}
+      {/* Events Overview */}
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
-          <div class="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
-            {/* Left: feature and list */}
-            <div class="md:col-span-2 grid gap-6">
-              {/* Feature event */}
-              <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-                <div class="flex items-start gap-4">
-                  <div class="flex-1">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Community Picnic</h2>
-                    <div class="text-gray-600 mt-1">April 23, 2024</div>
-                    <p class="mt-4 text-gray-700">Join us for a gather—great food and time together at the park.</p>
-                    <div class="mt-4"><a href="#" class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500">Register</a></div>
-                  </div>
-                  <img class="hidden sm:block w-28 h-28 object-cover rounded-lg" src="https://images.unsplash.com/photo-1529336953121-adb1189eff04?q=80&w=600&auto=format&fit=crop" alt="Picnic"/>
-                </div>
-              </div>
+          <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10 mb-8">
+            <h2 class="text-2xl font-extrabold text-gray-900">Overview</h2>
+            <p class="mt-3 text-gray-700">Our events are designed as spiritual moments, not performances. Each event carries an assignment to align believers with God's purposes for the season.</p>
+          </div>
 
-              {/* Stacked list */}
-              <div class="grid gap-6">
-                <div class="grid grid-cols-3 gap-4 bg-white rounded-xl p-5 border border-brand-dark/10 items-center">
-                  <img class="col-span-1 rounded-lg object-cover aspect-[3/4] w-full" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=600&auto=format&fit=crop" alt="Youth"/>
-                  <div class="col-span-2">
-                    <div class="text-xl md:text-2xl font-extrabold text-gray-900">Youth Conference</div>
-                    <div class="text-gray-600">August 15, 2024</div>
-                    <p class="text-gray-700 mt-1">Grow together through worship, study, and community.</p>
-                    <div class="mt-3"><a class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500" href="#">Register</a></div>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-4 bg-white rounded-xl p-5 border border-brand-dark/10 items-center">
-                  <img class="col-span-1 rounded-lg object-cover aspect-[3/4] w-full" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=600&auto=format&fit=crop" alt="Family"/>
-                  <div class="col-span-2">
-                    <div class="text-xl md:text-2xl font-extrabold text-gray-900">Family Fun Day</div>
-                    <div class="text-gray-600">October 19, 2024</div>
-                    <p class="text-gray-700 mt-1">Enjoy games, food, and time together.</p>
-                    <div class="mt-3"><a class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500" href="#">Register</a></div>
-                  </div>
-                </div>
-                <div class="grid grid-cols-3 gap-4 bg-white rounded-xl p-5 border border-brand-dark/10 items-center">
-                  <img class="col-span-1 rounded-lg object-cover aspect-[3/4] w-full" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=600&auto=format&fit=crop" alt="Christmas"/>
-                  <div class="col-span-2">
-                    <div class="text-xl md:text-2xl font-extrabold text-gray-900">Christmas Service</div>
-                    <div class="text-gray-600">December 24, 2024</div>
-                    <p class="text-gray-700 mt-1">Join us for a special candlelight service.</p>
-                    <div class="mt-3"><a class="btn btn-outline bg-amber-500/90 text-gray-900 border-amber-500/0 hover:bg-amber-500" href="#">Register</a></div>
-                  </div>
-                </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Discipleship Classes */}
+            <div class="bg-amber-500 rounded-xl p-6 text-gray-900">
+              <h3 class="text-xl font-extrabold">Discipleship Classes</h3>
+              <p class="mt-2 text-sm">Intentional teaching and formation for believers hungry for depth and spiritual growth.</p>
+              <div class="mt-4">
+                <a href="#" class="inline-block px-4 py-2 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-black">Learn More</a>
               </div>
             </div>
 
-            {/* Right: calendar + CTA */}
-            <div class="grid gap-6">
-              <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-                <h3 class="text-2xl font-extrabold text-gray-900">Event Calendar</h3>
-                <div class="mt-4 text-sm text-gray-700">
-                  <div class="flex items-center justify-between mb-3">
-                    <button class="px-2 py-1 rounded border border-black/10 bg-white text-gray-700" aria-label="Prev">&lt;</button>
-                    <div class="font-semibold">April 2024</div>
-                    <button class="px-2 py-1 rounded border border-black/10 bg-white text-gray-700" aria-label="Next">&gt;</button>
-                  </div>
-                  <div class="grid grid-cols-7 gap-1 text-center">
-                    <div class="text-gray-500">SUN</div><div class="text-gray-500">MON</div><div class="text-gray-500">TUE</div><div class="text-gray-500">WED</div><div class="text-gray-500">THU</div><div class="text-gray-500">FRI</div><div class="text-gray-500">SAT</div>
-                    <div class="opacity-30">31</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
-                    <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div class="rounded-full bg-amber-500 text-gray-900 font-bold">13</div>
-                    <div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
-                    <div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div>
-                    <div>28</div><div>29</div><div>30</div><div class="opacity-30">1</div><div class="opacity-30">2</div><div class="opacity-30">3</div><div class="opacity-30">4</div>
-                  </div>
-                </div>
+            {/* Sozo */}
+            <div class="bg-brand-cool rounded-xl p-6 text-white">
+              <h3 class="text-xl font-extrabold">Sozo</h3>
+              <p class="mt-2 text-sm">Inner healing and deliverance ministry for wholeness and freedom in Christ.</p>
+              <div class="mt-4">
+                <a href="#" class="inline-block px-4 py-2 bg-white text-brand-cool rounded-lg text-sm font-medium hover:bg-gray-100">Learn More</a>
               </div>
-              <div class="rounded-xl p-6 md:p-8 bg-amber-500 text-gray-900 border border-brand-dark/10">
-                <h3 class="text-3xl font-extrabold">Join Us</h3>
-                <p class="mt-2">Let's maintain a community together and enjoy rich experiences throughout the year.</p>
-                <div class="mt-4"><a href="/gatherings" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Join us at an event</a></div>
+            </div>
+
+            {/* Interdenominational Prayer */}
+            <div class="bg-green-600 rounded-xl p-6 text-white">
+              <h3 class="text-xl font-extrabold">Interdenominational Prayer</h3>
+              <p class="mt-2 text-sm">United prayer gatherings across denominations for the body of Christ.</p>
+              <div class="mt-4">
+                <a href="#" class="inline-block px-4 py-2 bg-white text-green-600 rounded-lg text-sm font-medium hover:bg-gray-100">Learn More</a>
               </div>
+            </div>
+
+            {/* 40 Week Prayer */}
+            <div class="bg-purple-600 rounded-xl p-6 text-white">
+              <h3 class="text-xl font-extrabold">40 Week Prayer</h3>
+              <p class="mt-2 text-sm">A sustained season of focused intercession and spiritual alignment.</p>
+              <div class="mt-4">
+                <a href="#" class="inline-block px-4 py-2 bg-white text-purple-600 rounded-lg text-sm font-medium hover:bg-gray-100">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div class="mt-10 bg-brand-warm rounded-xl p-6 md:p-8 text-gray-900 text-center">
+            <h3 class="text-2xl font-extrabold">Join Us at an Event</h3>
+            <p class="mt-2">Let's come together in one accord, aligning our hearts with what God is doing.</p>
+            <div class="mt-4">
+              <a href="#" class="btn btn-primary bg-gray-900 text-white hover:bg-black">View Upcoming Events</a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-white border-t border-black/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
-            <div>
-              <div class="flex items-center gap-2 font-bold tracking-wide">
-                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-              </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A church family shining the light of Jesus across our city—warm, hopeful, and always moving toward people.</p>
-            </div>
-            <div>
-              <h4 class="font-semibold">Contact</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-location-dot text-brand-warm mr-2"/> 123 Radiant Ave, City, ST</li>
-                <li><i class="fa fa-clock text-brand-warm mr-2"/> Sundays 9:00 + 11:00 AM</li>
-                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-semibold">Next Steps</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="/about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/events" class="hover:text-gray-900">Events</a></li>
-                <li><a href="/#messages" class="hover:text-gray-900">Watch Messages</a></li>
-                <li><a href="/give" class="hover:text-gray-900">Give</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 })
@@ -1015,48 +732,19 @@ app.get('/events', (c) => {
 app.get('/citizenship', (c) => {
   return c.render(
     <>
-      <header id="header" class="sticky-nav fixed top-0 inset-x-0 z-50 bg-white border-b border-brand-dark/10 text-gray-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-24 items-center justify-between">
-            <a href="/" class="flex items-center gap-2 font-bold tracking-wide">
-              <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-            </a>
-            <nav id="nav" class="hidden md:flex items-center gap-8 text-sm font-medium">
-              <a class="hover:text-brand-warm" href="/">Home</a>
-              <a class="hover:text-brand-warm" href="/about">About</a>
-              <a class="hover:text-brand-warm" href="/gatherings">Gatherings</a>
-              <a class="hover:text-brand-warm" href="/ministries">Ministries</a>
-              <a class="hover:text-brand-warm" href="/events">Events</a>
-              <a class="hover:text-brand-warm" href="/give">Give</a>
-            </nav>
-            <button id="mobileTrigger" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-black/5 hover:bg-black/10" aria-label="Open menu">
-              <i class="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        <div id="mobileMenu" class="md:hidden bg-white border-t border-brand-dark/10">
-          <div class="mx-auto max-w-7xl px-4 py-4 space-y-2 text-sm">
-            <a class="block py-2 hover:text-brand-warm" href="/">Home</a>
-            <a class="block py-2 hover:text-brand-warm" href="/about">About</a>
-            <a class="block py-2 hover:text-brand-warm" href="/gatherings">Gatherings</a>
-            <a class="block py-2 hover:text-brand-warm" href="/ministries">Ministries</a>
-            <a class="block py-2 hover:text-brand-warm" href="/events">Events</a>
-            <a class="block py-2 hover:text-brand-warm" href="/give">Give</a>
-          </div>
-        </div>
-      </header>
+      <Header currentPage="citizenship" />
 
       {/* Hero */}
       <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           <div class="bg-white rounded-xl p-8 md:p-10 border border-brand-dark/10 flex flex-col justify-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900">Become a Citizen</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Become a Citizen</h1>
             <p class="mt-4 text-gray-700 text-lg leading-relaxed">Citizenship here is spiritual and intentional.</p>
             <p class="mt-3 text-gray-600">To be a Citizen of The Radiant Republic is to choose growth, maturity, accountability, and alignment with what God is doing in this season.</p>
+            <p class="mt-3 text-gray-600">A citizen is someone willing to be formed—in character, in purity, and in responsibility as part of the body of Christ.</p>
           </div>
           <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
-            <img src="https://page.gensparksite.com/v1/base64_upload/9d203efd148787105356059dce4824ef" alt="Citizenship" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="/static/heroImage.png" alt="Citizenship" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black/20"></div>
             <div class="absolute bottom-6 left-6 right-6 text-white">
               <div class="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95]">CITIZENSHIP</div>
@@ -1070,11 +758,10 @@ app.get('/citizenship', (c) => {
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
           <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-            {/* What is a Citizen */}
+            {/* What Citizenship Means */}
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h2 class="text-3xl font-extrabold text-gray-900">What is a Citizen?</h2>
-              <p class="mt-4 text-gray-700">A citizen is someone willing to be formed—in character, in purity, and in responsibility as part of the body of Christ.</p>
-              <p class="mt-3 text-gray-600">This does not mean leaving your local church. It does not mean isolation or elitism.</p>
+              <h2 class="text-3xl font-extrabold text-gray-900">What Does It Mean?</h2>
+              <p class="mt-4 text-gray-700">This does not mean leaving your local church. It does not mean isolation or elitism.</p>
               <p class="mt-3 text-gray-600">It means walking deliberately with others who are serious about becoming a glorious people unto God.</p>
             </div>
 
@@ -1113,80 +800,38 @@ app.get('/citizenship', (c) => {
               </div>
             </div>
 
-            {/* Not Church as Usual */}
-            <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Not Church as Usual</h3>
-              <p class="mt-3 text-gray-700">This is a journey for believers who are hungry to be formed—in character, in purity, and in purpose.</p>
-              <p class="mt-3 text-gray-600">We don't replace your local church. We walk with you, sharpen you, and help you return to your world clearer, stronger, and more aligned with Christ.</p>
-            </div>
-
             {/* CTA */}
             <div class="bg-gray-900 rounded-xl p-6 md:p-8 text-white border border-brand-dark/10">
               <h3 class="text-2xl font-extrabold">Ready to Begin?</h3>
               <p class="mt-3 text-gray-300">If you're tired of surface-level faith and ready for intentional growth, we would love to walk this journey with you.</p>
               <div class="mt-6">
-                <a href="#" class="btn btn-primary bg-brand-warm text-gray-900 hover:bg-amber-500">Become a Citizen</a>
+                <a href="https://forms.gle/your-form-link" target="_blank" class="btn btn-primary bg-brand-warm text-gray-900 hover:bg-amber-500">Become a Citizen of The Radiant Republic</a>
               </div>
             </div>
 
-            {/* Images */}
-            <div class="grid grid-cols-2 gap-4">
-              <img class="rounded-lg object-cover h-48 w-full" src="https://images.unsplash.com/photo-1529336953121-adb1189eff04?q=80&w=1000&auto=format&fit=crop" alt="Community"/>
-              <img class="rounded-lg object-cover h-48 w-full" src="https://images.unsplash.com/photo-1514516345957-556ca7c9a7b4?q=80&w=1000&auto=format&fit=crop" alt="Gathering"/>
-            </div>
-
-            {/* Next Steps */}
+            {/* Stay Connected */}
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
-              <h3 class="text-2xl font-extrabold text-gray-900">Next Steps</h3>
+              <h3 class="text-2xl font-extrabold text-gray-900">Stay Connected</h3>
               <p class="mt-3 text-gray-700">We would love to stay connected with you.</p>
-              <p class="mt-3 text-gray-600">Follow us on Instagram, TikTok, Facebook, and YouTube @TheRadiantRepublic.</p>
-              <p class="mt-3 text-gray-700 font-medium">We can't wait to walk this journey with you.</p>
+              <p class="mt-3 text-gray-600">Follow us on Instagram, TikTok, Facebook, and YouTube @TheRadiantRepublic, or send us an email.</p>
+              <p class="mt-3 text-gray-700 font-medium">We can't wait to read from you.</p>
               <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
                 <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
                 <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
                 <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
                 <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
+              </div>
+              <div class="mt-4">
+                <a href="#" onclick="document.getElementById('emailModal').classList.remove('hidden'); return false;" class="btn btn-outline">
+                  <i class="fa fa-envelope mr-2"></i>Send us an Email
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer class="bg-white border-t border-black/10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div class="grid md:grid-cols-3 gap-8 text-gray-900">
-            <div>
-              <div class="flex items-center gap-2 font-bold tracking-wide">
-                <img src="https://page.gensparksite.com/v1/base64_upload/a152be7d733f66fab925f760fdfb893a" alt="Radiant logo" class="h-20 md:h-24 w-auto"/>
-              </div>
-              <p class="mt-3 text-gray-700 text-sm max-w-sm">A people being formed into the radiant reflection of Christ.</p>
-              <div class="mt-4 flex items-center gap-4 text-lg text-gray-700">
-                <a class="hover:text-brand-warm" aria-label="Instagram" href="https://www.instagram.com/theradiantrepublic/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" /></a>
-                <a class="hover:text-brand-warm" aria-label="TikTok" href="https://www.tiktok.com/@theradiantrepublic" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok" /></a>
-                <a class="hover:text-brand-warm" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576556033565" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook" /></a>
-                <a class="hover:text-brand-warm" aria-label="YouTube" href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube" /></a>
-              </div>
-            </div>
-            <div>
-              <h4 class="font-semibold">Contact</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><i class="fa fa-envelope text-brand-warm mr-2"/> hello@radiantrepublic.church</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-semibold">Next Steps</h4>
-              <ul class="mt-3 space-y-2 text-gray-700 text-sm">
-                <li><a href="/about" class="hover:text-gray-900">About</a></li>
-                <li><a href="/gatherings" class="hover:text-gray-900">Gatherings</a></li>
-                <li><a href="/ministries" class="hover:text-gray-900">Ministries</a></li>
-                <li><a href="/citizenship" class="hover:text-gray-900">Become a Citizen</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-10 border-t border-black/10 pt-6 text-xs text-gray-500">© {new Date().getFullYear()} The Radiant Republic. All rights reserved.</div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 })
