@@ -123,8 +123,8 @@ app.get('/', (c) => {
             <div class="relative rounded-xl overflow-hidden min-h-[320px] md:min-h-[460px]">
               <div id="heroCarousel" class="absolute inset-0">
                 <img src="/static/heroImage.png" alt="Radiant worship" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000"/>
-                <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Community gathering" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
-                <img src="https://images.pexels.com/photos/14664088/pexels-photo-14664088.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Worship service" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
+                <img src="/static/worship-moment.jpg" alt="Worship moment" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
+                <img src="/static/worship-singing.jpg" alt="Worship service" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
               </div>
               <div class="absolute inset-0 bg-black/25"></div>
               <div class="absolute bottom-8 left-6 right-6 pb-2">
