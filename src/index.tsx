@@ -339,7 +339,7 @@ app.get('/about', (c) => {
           <div class="grid md:grid-cols-2 gap-8 items-start">
             <div class="bg-white rounded-xl p-6 md:p-8 border border-brand-dark/10">
               <div class="flex gap-6 items-start">
-                <img class="w-32 h-40 rounded-lg object-cover" src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pastor Wilson Diamond"/>
+                <img class="w-32 h-40 rounded-lg object-cover" src="/static/pastor-wilson.jpg" alt="Pastor Wilson Diamond"/>
                 <div>
                   <h3 class="text-2xl font-extrabold text-gray-900">Pastor Wilson Diamond</h3>
                   <div class="text-amber-600 font-medium">Lead Steward</div>
