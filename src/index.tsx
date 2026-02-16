@@ -119,19 +119,31 @@ app.get('/', (c) => {
       <section id="home" class="pt-28 md:pt-32 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
-            {/* Left: Image Carousel with title overlay */}
+            {/* Left: image carousel with title overlay */}
             <div class="relative rounded-xl overflow-hidden min-h-[320px] md:min-h-[460px]">
-              <div id="heroCarousel" class="absolute inset-0">
-                <img src="/static/heroImage.png" alt="Radiant worship" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000"/>
-                <img src="/static/worship-moment.jpg" alt="Worship moment" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
-                <img src="/static/worship-singing.jpg" alt="Worship service" class="carousel-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"/>
+              {/* Slide 1 */}
+              <div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100">
+                <img src="/static/heroImage.png" alt="Radiant worship" class="w-full h-full object-cover"/>
+              </div>
+              {/* Slide 2 */}
+              <div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
+                <img src="/static/carousel-worship.png" alt="Worship moment" class="w-full h-full object-cover"/>
+              </div>
+              {/* Slide 3 */}
+              <div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
+                <img src="/static/carousel-singing.png" alt="Praise and worship" class="w-full h-full object-cover"/>
               </div>
               <div class="absolute inset-0 bg-black/25"></div>
-              <div class="absolute bottom-8 left-6 right-6 pb-2">
+              <div class="absolute bottom-8 left-6 right-6 pb-2 flex items-end justify-between">
                 <div class="text-white font-black leading-[1] text-4xl sm:text-5xl md:text-6xl tracking-tight">
                   <div>THE</div>
                   <div>RADIANT</div>
                   <div>REPUBLIC</div>
+                </div>
+                <div class="flex gap-2 mb-1">
+                  <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/80 transition-colors" aria-label="Slide 1"></button>
+                  <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-colors" aria-label="Slide 2"></button>
+                  <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-colors" aria-label="Slide 3"></button>
                 </div>
               </div>
               {/* Carousel dots */}

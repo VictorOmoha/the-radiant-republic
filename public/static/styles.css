@@ -40,3 +40,7 @@ html, body{height:100%;}
 /* Mobile menu hidden by default, toggled by JS */
 #mobileMenu{display:none}
 #mobileMenu.open{display:block}
+
+/***** Hero carousel *****/
+.carousel-slide{pointer-events:none}
+.carousel-slide img{width:100%;height:100%;object-fit:cover}
