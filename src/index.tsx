@@ -351,7 +351,7 @@ app.get('/ministries', (c) => {
       <section class="pt-32 md:pt-36 lg:pt-40 bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           <div class="relative rounded-xl overflow-hidden min-h-[300px] md:min-h-[420px]">
-            <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ministries hero" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="/static/Worship3.png" alt="Ministries hero" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute inset-0 bg-black/20"></div>
             <div class="absolute bottom-6 left-6 right-6 text-white">
               <div class="text-4xl sm:text-5xl md:text-6xl font-black leading-[0.95]">MINISTRIES</div>
