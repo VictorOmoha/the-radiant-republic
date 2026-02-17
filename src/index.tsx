@@ -146,12 +146,6 @@ app.get('/', (c) => {
                   <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-colors" aria-label="Slide 3"></button>
                 </div>
               </div>
-              {/* Carousel dots */}
-              <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                <button class="carousel-dot w-2 h-2 rounded-full bg-white/80" data-index="0"></button>
-                <button class="carousel-dot w-2 h-2 rounded-full bg-white/40" data-index="1"></button>
-                <button class="carousel-dot w-2 h-2 rounded-full bg-white/40" data-index="2"></button>
-              </div>
             </div>
             {/* Right: headline and CTA */}
             <div class="bg-white rounded-xl p-8 md:p-10 flex flex-col justify-center border border-brand-dark/10">
@@ -256,39 +250,6 @@ app.get('/', (c) => {
       </section>
 
       <Footer />
-
-      {/* Carousel Script */}
-      <script dangerouslySetInnerHTML={{ __html: `
-        (function() {
-          let currentSlide = 0;
-          const slides = document.querySelectorAll('.carousel-slide');
-          const dots = document.querySelectorAll('.carousel-dot');
-          
-          function showSlide(index) {
-            slides.forEach((slide, i) => {
-              slide.style.opacity = i === index ? '1' : '0';
-            });
-            dots.forEach((dot, i) => {
-              dot.classList.toggle('bg-white/80', i === index);
-              dot.classList.toggle('bg-white/40', i !== index);
-            });
-          }
-          
-          function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-          }
-          
-          dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-              currentSlide = i;
-              showSlide(currentSlide);
-            });
-          });
-          
-          setInterval(nextSlide, 5000);
-        })();
-      `}} />
     </>
   )
 })
