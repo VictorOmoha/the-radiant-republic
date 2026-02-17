@@ -242,7 +242,7 @@ app.get('/', (c) => {
               <h3 class="text-2xl font-extrabold">Become a Citizen</h3>
               <p class="mt-2">Citizenship here is spiritual and intentional. To be a Citizen of The Radiant Republic is to choose growth, maturity, accountability, and alignment with what God is doing in this season.</p>
               <div class="mt-4">
-                <a href="/citizenship" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a>
+                <a href="https://bit.ly/RadiantRepublicCitizenshipForm" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a>
               </div>
             </div>
           </div>
@@ -424,7 +424,7 @@ app.get('/ministries', (c) => {
                 </div>
                 <h3 class="text-2xl font-extrabold">Rays of Radiance</h3>
               </div>
-              <p>Taking the message beyond gatherings by reflecting the radiance of Jesus into communities, conversations, and everyday life. Here, our hearts beat for souls and culture-shaping impact.</p>
+              <p>Taking the message beyond gatherings by reflecting the radiance of Jesus into communities, conversations, and everyday life. Here, our hearts beat for souls and culture-shaping impact,</p>
             </div>
 
             {/* Join a Team CTA */}
@@ -509,7 +509,7 @@ app.get('/gatherings', (c) => {
               <div class="rounded-lg bg-brand-cool text-white font-black text-2xl md:text-3xl px-6 py-4 mb-4">
                 2nd-4th Sundays • 6:00 PM WAT
               </div>
-              <p class="text-gray-700">Wherever you are, you can stay connected. Virtual services allow you to remain aligned, taught, and spiritually fed, bridging distance while keeping you rooted in what God is doing in the Republic.</p>
+              <p class="text-gray-700">Wherever you are, you can stay connected. Virtual services allow you to remain aligned, taught, and spiritually fed. Bridging distance while keeping you rooted in what God is doing in the Republic.</p>
               <div class="mt-4 p-4 bg-gray-50 rounded-lg">
                 <p class="text-sm text-gray-600"><strong>YouTube:</strong> <a href="https://www.youtube.com/@TheRadiant_Republic" target="_blank" class="text-amber-600 hover:underline">@TheRadiant_Republic</a></p>
               </div>
@@ -569,12 +569,15 @@ app.get('/give', (c) => {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
 
           {/* Payment method tabs */}
-          <div class="flex justify-center gap-4 mb-10">
+          <div class="flex flex-wrap justify-center gap-3 mb-10">
             <button class="give-tab active px-6 py-3 rounded-full font-bold text-sm transition-all bg-[#0070ba] text-white shadow-md" data-tab="paypal">
               <i class="fa-brands fa-paypal mr-2"></i>PayPal
             </button>
             <button class="give-tab px-6 py-3 rounded-full font-bold text-sm transition-all bg-white text-gray-700 border border-brand-dark/10 hover:bg-gray-50" data-tab="zelle">
               <i class="fa-solid fa-building-columns mr-2"></i>Zelle
+            </button>
+            <button class="give-tab px-6 py-3 rounded-full font-bold text-sm transition-all bg-white text-gray-700 border border-brand-dark/10 hover:bg-gray-50" data-tab="cashapp">
+              <i class="fa-solid fa-dollar-sign mr-2"></i>CashApp
             </button>
             <button class="give-tab px-6 py-3 rounded-full font-bold text-sm transition-all bg-white text-gray-700 border border-brand-dark/10 hover:bg-gray-50" data-tab="cash">
               <i class="fa-solid fa-hand-holding-dollar mr-2"></i>Cash
@@ -615,6 +618,26 @@ app.get('/give', (c) => {
                   <img src="/static/zelle-qr.jpg" alt="Zelle QR Code for The Radiant Republic" class="w-64 h-64 object-contain" />
                 </div>
                 <p class="text-gray-600 text-center text-sm max-w-md">Open your banking app, select <strong>Send with Zelle</strong>, and scan the QR code above to send your gift.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* CashApp Tab */}
+          <div class="give-panel hidden" data-panel="cashapp">
+            <div class="bg-white rounded-2xl border border-brand-dark/10 overflow-hidden max-w-2xl mx-auto">
+              <div class="bg-[#00d632] px-6 py-4 flex items-center gap-3">
+                <i class="fa-solid fa-dollar-sign text-white text-3xl"></i>
+                <div>
+                  <h3 class="text-xl font-extrabold text-white">Give via CashApp</h3>
+                  <p class="text-white/80 text-sm">Send directly through CashApp</p>
+                </div>
+              </div>
+              <div class="p-8 flex flex-col items-center">
+                <div class="bg-green-50 rounded-xl p-6 w-full max-w-sm text-center mb-6">
+                  <p class="text-sm text-gray-500 mb-1">Send CashApp payment to</p>
+                  <p class="text-2xl font-extrabold text-[#00d632]">$theradiantrepublic</p>
+                </div>
+                <p class="text-gray-600 text-center text-sm max-w-md">Open your CashApp, tap <strong>Pay</strong>, and enter <strong>$theradiantrepublic</strong> to send your gift.</p>
               </div>
             </div>
           </div>

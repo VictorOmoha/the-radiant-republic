@@ -71,6 +71,10 @@
           tab.style.background = '#6d1ed4';
           tab.style.color = '#fff';
           tab.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+        } else if(target === 'cashapp'){
+          tab.style.background = '#00d632';
+          tab.style.color = '#fff';
+          tab.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
         } else if(target === 'cash'){
           tab.style.background = '#16a34a';
           tab.style.color = '#fff';
