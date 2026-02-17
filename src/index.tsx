@@ -471,7 +471,7 @@ app.get('/gatherings', (c) => {
             </div>
           </div>
           <div class="relative rounded-xl overflow-hidden min-h-[260px] md:min-h-[420px]">
-            <img src="https://images.pexels.com/photos/6860380/pexels-photo-6860380.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gatherings" class="absolute inset-0 w-full h-full object-cover" />
+            <img src="/static/Worship4i.png" alt="Gatherings" class="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </section>
