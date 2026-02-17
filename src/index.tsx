@@ -131,7 +131,7 @@ app.get('/', (c) => {
               </div>
               {/* Slide 3 */}
               <div class="carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
-                <img src="/static/carousel-singing.png" alt="Praise and worship" class="w-full h-full object-cover"/>
+                <img src="/static/Corousel-worship2.png" alt="Praise and worship" class="w-full h-full object-cover"/>
               </div>
               <div class="absolute inset-0 bg-black/25"></div>
               <div class="absolute bottom-8 left-6 right-6 pb-2 flex items-end justify-between">
