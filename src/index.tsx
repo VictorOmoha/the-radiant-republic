@@ -564,37 +564,79 @@ app.get('/give', (c) => {
         </div>
       </section>
 
-      {/* Ways to Give */}
+      {/* Payment Methods */}
       <section class="bg-[#faf7f2]">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
-              <div class="w-16 h-16 mx-auto rounded-full bg-amber-500 flex items-center justify-center mb-4">
-                <i class="fa-solid fa-credit-card text-white text-2xl"></i>
+
+          {/* Payment method tabs */}
+          <div class="flex justify-center gap-4 mb-10">
+            <button class="give-tab active px-6 py-3 rounded-full font-bold text-sm transition-all bg-[#0070ba] text-white shadow-md" data-tab="paypal">
+              <i class="fa-brands fa-paypal mr-2"></i>PayPal
+            </button>
+            <button class="give-tab px-6 py-3 rounded-full font-bold text-sm transition-all bg-white text-gray-700 border border-brand-dark/10 hover:bg-gray-50" data-tab="zelle">
+              <i class="fa-solid fa-building-columns mr-2"></i>Zelle
+            </button>
+            <button class="give-tab px-6 py-3 rounded-full font-bold text-sm transition-all bg-white text-gray-700 border border-brand-dark/10 hover:bg-gray-50" data-tab="cash">
+              <i class="fa-solid fa-hand-holding-dollar mr-2"></i>Cash
+            </button>
+          </div>
+
+          {/* PayPal Tab */}
+          <div class="give-panel active" data-panel="paypal">
+            <div class="bg-white rounded-2xl border border-brand-dark/10 overflow-hidden max-w-2xl mx-auto">
+              <div class="bg-[#0070ba] px-6 py-4 flex items-center gap-3">
+                <i class="fa-brands fa-paypal text-white text-3xl"></i>
+                <div>
+                  <h3 class="text-xl font-extrabold text-white">Give via PayPal</h3>
+                  <p class="text-white/80 text-sm">Scan the QR code below with your phone</p>
+                </div>
               </div>
-              <h3 class="text-xl font-extrabold text-gray-900">Online Transfer</h3>
-              <p class="mt-2 text-gray-600 text-sm">Bank transfer to our account</p>
+              <div class="p-8 flex flex-col items-center">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
+                  <img src="/static/paypal-qr.png" alt="PayPal QR Code for The Radiant Republic" class="w-64 h-64 object-contain" />
+                </div>
+                <p class="text-gray-600 text-center text-sm max-w-md">Open your PayPal app, tap <strong>Scan</strong>, and point your camera at the QR code to send your gift securely.</p>
+              </div>
             </div>
-            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
-              <div class="w-16 h-16 mx-auto rounded-full bg-brand-cool flex items-center justify-center mb-4">
-                <i class="fa-solid fa-mobile-screen text-white text-2xl"></i>
+          </div>
+
+          {/* Zelle Tab */}
+          <div class="give-panel hidden" data-panel="zelle">
+            <div class="bg-white rounded-2xl border border-brand-dark/10 overflow-hidden max-w-2xl mx-auto">
+              <div class="bg-[#6d1ed4] px-6 py-4 flex items-center gap-3">
+                <i class="fa-solid fa-building-columns text-white text-3xl"></i>
+                <div>
+                  <h3 class="text-xl font-extrabold text-white">Give via Zelle</h3>
+                  <p class="text-white/80 text-sm">Send directly from your banking app</p>
+                </div>
               </div>
-              <h3 class="text-xl font-extrabold text-gray-900">Mobile Payment</h3>
-              <p class="mt-2 text-gray-600 text-sm">Quick and easy mobile giving</p>
+              <div class="p-8 flex flex-col items-center">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
+                  <img src="/static/zelle-qr.jpg" alt="Zelle QR Code for The Radiant Republic" class="w-64 h-64 object-contain" />
+                </div>
+                <p class="text-gray-600 text-center text-sm max-w-md">Open your banking app, select <strong>Send with Zelle</strong>, and scan the QR code above to send your gift.</p>
+              </div>
             </div>
-            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
-              <div class="w-16 h-16 mx-auto rounded-full bg-green-600 flex items-center justify-center mb-4">
-                <i class="fa-solid fa-hand-holding-dollar text-white text-2xl"></i>
+          </div>
+
+          {/* Cash Tab */}
+          <div class="give-panel hidden" data-panel="cash">
+            <div class="bg-white rounded-2xl border border-brand-dark/10 overflow-hidden max-w-2xl mx-auto">
+              <div class="bg-green-600 px-6 py-4 flex items-center gap-3">
+                <i class="fa-solid fa-hand-holding-dollar text-white text-3xl"></i>
+                <div>
+                  <h3 class="text-xl font-extrabold text-white">Give in Person</h3>
+                  <p class="text-white/80 text-sm">During any of our gatherings</p>
+                </div>
               </div>
-              <h3 class="text-xl font-extrabold text-gray-900">Cash</h3>
-              <p class="mt-2 text-gray-600 text-sm">At physical gatherings</p>
-            </div>
-            <div class="bg-white rounded-xl p-6 border border-brand-dark/10 text-center">
-              <div class="w-16 h-16 mx-auto rounded-full bg-purple-600 flex items-center justify-center mb-4">
-                <i class="fa-solid fa-repeat text-white text-2xl"></i>
+              <div class="p-8 flex flex-col items-center">
+                <div class="bg-green-50 rounded-xl p-6 w-full max-w-sm text-center mb-6">
+                  <i class="fa-solid fa-church text-green-600 text-4xl mb-3"></i>
+                  <p class="text-lg font-bold text-gray-900">At Our Gatherings</p>
+                  <p class="text-sm text-gray-600 mt-1">Sundays &amp; Wednesdays</p>
+                </div>
+                <p class="text-gray-600 text-center text-sm max-w-md">You can give your cash or check offering during any of our physical gatherings. Speak to an usher if you need assistance.</p>
               </div>
-              <h3 class="text-xl font-extrabold text-gray-900">Recurring</h3>
-              <p class="mt-2 text-gray-600 text-sm">Set up recurring giving</p>
             </div>
           </div>
 

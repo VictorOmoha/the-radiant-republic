@@ -44,4 +44,50 @@
       goToSlide((currentSlide + 1) % slides.length);
     }, 5000);
   }
+  // Give page – payment method tabs
+  const giveTabs = document.querySelectorAll('.give-tab');
+  const givePanels = document.querySelectorAll('.give-panel');
+
+  if(giveTabs.length){
+    giveTabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var target = tab.getAttribute('data-tab');
+
+        // Update tab styles
+        giveTabs.forEach(function(t){
+          t.classList.remove('active');
+          t.style.background = '#fff';
+          t.style.color = '#374151';
+          t.style.boxShadow = 'none';
+        });
+
+        // Active tab styling based on payment method
+        tab.classList.add('active');
+        if(target === 'paypal'){
+          tab.style.background = '#0070ba';
+          tab.style.color = '#fff';
+          tab.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+        } else if(target === 'zelle'){
+          tab.style.background = '#6d1ed4';
+          tab.style.color = '#fff';
+          tab.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+        } else if(target === 'cash'){
+          tab.style.background = '#16a34a';
+          tab.style.color = '#fff';
+          tab.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
+        }
+
+        // Show/hide panels
+        givePanels.forEach(function(p){
+          if(p.getAttribute('data-panel') === target){
+            p.classList.remove('hidden');
+            p.classList.add('active');
+          } else {
+            p.classList.add('hidden');
+            p.classList.remove('active');
+          }
+        });
+      });
+    });
+  }
 })();
