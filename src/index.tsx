@@ -712,7 +712,7 @@ app.get('/events', (c) => {
               <h3 class="text-xl font-extrabold">Discipleship Classes</h3>
               <p class="mt-2 text-sm">Intentional teaching and formation for believers hungry for depth and spiritual growth.</p>
               <div class="mt-4">
-                <a href="#" class="inline-block px-4 py-2 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-black">Learn More</a>
+                <span class="inline-block px-4 py-2 bg-gray-900/80 text-white rounded-lg text-sm font-medium cursor-default">Stay Tuned</span>
               </div>
             </div>
 
