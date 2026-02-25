@@ -530,7 +530,7 @@ app.get('/gatherings', (c) => {
               <div class="mt-4"><a href="/citizenship" class="btn btn-outline">Become a Citizen</a></div>
             </div>
             <div class="rounded-xl overflow-hidden">
-              <img class="w-full h-56 object-cover" src="https://images.pexels.com/photos/14664088/pexels-photo-14664088.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Community"/>
+              <img class="w-full h-56 object-cover" src="/static/we-want-to-meet.jpg" alt="Community"/>
             </div>
           </div>
         </div>
