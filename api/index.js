@@ -284,7 +284,7 @@ ${header('home')}
         <h3 class="text-2xl font-extrabold">Become a Citizen</h3>
         <p class="mt-2">Citizenship here is spiritual and intentional. To be a Citizen of The Radiant Republic is to choose growth, maturity, accountability, and alignment with what God is doing in this season.</p>
         <div class="mt-4">
-          <a href="https://bit.ly/RadiantRepublicCitizenshipForm" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScKc18-AD9LykcDav77fJLjLI7yGbg3GxasT-FD0p0vnk1aVA/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a>
         </div>
       </div>
     </div>
@@ -369,7 +369,7 @@ ${header('about')}
         <div class="rounded-xl p-6 bg-brand-warm text-gray-900 border border-brand-dark/10">
           <h3 class="text-2xl font-extrabold">Become a Citizen</h3>
           <p class="mt-2">Ready to walk deliberately with others who are serious about becoming a glorious people unto God?</p>
-          <div class="mt-4"><a href="https://bit.ly/RadiantRepublicCitizenshipForm" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a></div>
+          <div class="mt-4"><a href="https://docs.google.com/forms/d/e/1FAIpQLScKc18-AD9LykcDav77fJLjLI7yGbg3GxasT-FD0p0vnk1aVA/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-gray-900 text-white hover:bg-black">Become a Citizen</a></div>
         </div>
       </div>
     </div>
@@ -565,7 +565,7 @@ ${header('ministries')}
         <h3 class="text-2xl font-extrabold">Join a Team</h3>
         <p class="mt-3 text-gray-300">If you carry a burden for prayer, discipleship, service, or building others, we want to walk with you.</p>
         <div class="mt-4 flex flex-wrap gap-3">
-          <a href="https://bit.ly/RadiantRepublicCitizenshipForm" target="_blank" rel="noopener noreferrer" class="btn btn-outline border-white text-white hover:bg-white/10">Join a Team</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScKc18-AD9LykcDav77fJLjLI7yGbg3GxasT-FD0p0vnk1aVA/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-outline border-white text-white hover:bg-white/10">Join a Team</a>
         </div>
       </div>
     </div>
@@ -880,7 +880,7 @@ ${header('citizenship')}
         <h3 class="text-2xl font-extrabold">Ready to Begin?</h3>
         <p class="mt-3 text-gray-300">If you're tired of surface-level faith and ready for intentional growth, we would love to walk this journey with you.</p>
         <div class="mt-6">
-          <a href="https://bit.ly/RadiantRepublicCitizenshipForm" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-brand-warm text-gray-900 hover:bg-amber-500">Become a Citizen of The Radiant Republic</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScKc18-AD9LykcDav77fJLjLI7yGbg3GxasT-FD0p0vnk1aVA/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-brand-warm text-gray-900 hover:bg-amber-500">Become a Citizen of The Radiant Republic</a>
         </div>
       </div>
 
