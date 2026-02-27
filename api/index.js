@@ -770,11 +770,24 @@ ${header('give')}
         </div>
         <div class="p-8 flex flex-col items-center">
           <div class="bg-green-50 rounded-xl p-6 w-full max-w-sm text-center mb-6">
-            <i class="fa-solid fa-church text-green-600 text-4xl mb-3"></i>
-            <p class="text-lg font-bold text-gray-900">At Our Gatherings</p>
-            <p class="text-sm text-gray-600 mt-1">Sundays &amp; Wednesdays</p>
+            <i class="fa-solid fa-building-columns text-green-600 text-4xl mb-3"></i>
+            <p class="text-lg font-bold text-gray-900">Bank Transfer</p>
+            <div class="mt-3 text-left space-y-2">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-500 font-medium">Bank:</span>
+                <span class="text-gray-900 font-semibold">Providus Bank</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-500 font-medium">Account Name:</span>
+                <span class="text-gray-900 font-semibold text-right">The Radiant Republic Christian Ministry</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-500 font-medium">Account No:</span>
+                <span class="text-gray-900 font-bold text-lg">1307720042</span>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-600 text-center text-sm max-w-md">You can give your cash or check offering during any of our physical gatherings. Speak to an usher if you need assistance.</p>
+          <p class="text-gray-600 text-center text-sm max-w-md">You can also give your cash or check offering during any of our physical gatherings. Speak to an usher if you need assistance.</p>
         </div>
       </div>
     </div>
