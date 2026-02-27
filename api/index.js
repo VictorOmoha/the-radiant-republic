@@ -9,6 +9,8 @@ function layout(body) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Radiant Republic</title>
   <meta name="description" content="The Radiant Republic — a church family shining the light of Jesus with hope, warmth, and movement." />
+  <link rel="icon" type="image/png" href="/static/favicon.png" />
+  <link rel="apple-touch-icon" href="/static/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
