@@ -3,7 +3,7 @@ import { handle } from 'hono/vercel'
 import { jsxRenderer } from 'hono/jsx-renderer'
 
 export const config = {
-  runtime: 'edge'
+  runtime: 'nodejs'
 }
 
 const app = new Hono()
