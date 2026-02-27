@@ -132,7 +132,7 @@ function footer() {
         <i class="fa fa-times text-xl"></i>
       </button>
       <h3 class="text-2xl font-extrabold text-gray-900">Send us a message</h3>
-      <form class="mt-4 space-y-4" action="mailto:Hello@radiantrepublic.org" method="post" enctype="text/plain">
+      <form class="mt-4 space-y-4" onsubmit="event.preventDefault(); var n=this.querySelector('[name=name]').value; var e=this.querySelector('[name=email]').value; var m=this.querySelector('[name=message]').value; var subject=encodeURIComponent('Message from '+n); var body=encodeURIComponent('From: '+n+'\\nEmail: '+e+'\\n\\n'+m); window.location.href='mailto:Hello@radiantrepublic.org?subject='+subject+'&body='+body; document.getElementById('emailModal').classList.add('hidden');">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
           <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-warm focus:border-transparent" required />
